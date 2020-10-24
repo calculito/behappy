@@ -1,0 +1,75 @@
+import React from "react";
+import "./App.css";
+import Flower from "../src/images/flower.png";
+import Word from "../src/images/word.png";
+import Meditation from "../src/images/meditation.png";
+import Grate from "../src/images/grate.png";
+import Quote from "../src/images/quote.png";
+import Art from "../src/images/art.png";
+import Smile from "../src/images/smile.png";
+import Number from "../src/images/number.png";
+import Thank from "../src/images/thank.png";
+import Haiku from "../src/images/haiku.png";
+import Time from "../src/images/time.png";
+import Forgive from "../src/images/forgive.png";
+import Anger from "../src/images/anger.png";
+import Sing from "../src/images/sing.png";
+import Idea from "../src/images/idea.png";
+
+const content = [
+  "Learn a word",
+  "mediation sound",
+  "get a flower",
+  "be grateful",
+  "get a quote",
+  "see art",
+  "give yourself a smile",
+  "see a positive number",
+  "thank someone (us)",
+  "read a haiku",
+  "take time for yourself",
+  "forgive someone",
+  "send me all your frust",
+  "sing with me",
+  "send us an idea",
+];
+const images = {
+  0: Flower,
+  1: Word,
+  2: Meditation,
+  3: Grate,
+  4: Quote,
+  5: Art,
+  6: Smile,
+  7: Number,
+  8: Thank,
+  9: Haiku,
+  10: Time,
+  11: Forgive,
+  12: Anger,
+  13: Sing,
+  14: Idea,
+};
+
+export default function Grid({ onGridClick }) {
+  return (
+    <>
+      <div className="container">
+        {content.map((data, i) => {
+          return (
+            <div className="paper" key={"paper" + i}>
+              {" "}
+              <img
+                key={images[i]}
+                className="logoItems"
+                src={images[i]}
+                alt={images[i]}
+                onClick={() => onGridClick(i)}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
+}

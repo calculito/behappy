@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Grid from "./Grid";
+import Info from "./Info";
+import Footer from "./Footer";
 
-function App() {
+export default function App() {
+  const [whichIndex, setwhichIndex] = useState(0);
+  const chooseIndex = (i) => {
+    setwhichIndex(i);
+  };
+  console.log(whichIndex);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {
+        {
+          0: <Grid onGridClick={chooseIndex} />,
+          1: <Info />,
+          2: <Grid onGridClick={chooseIndex} />,
+          3: <Grid onGridClick={chooseIndex} />,
+          4: <Grid onGridClick={chooseIndex} />,
+          5: <Grid onGridClick={chooseIndex} />,
+          6: <Grid onGridClick={chooseIndex} />,
+          7: <Grid onGridClick={chooseIndex} />,
+          8: <Grid onGridClick={chooseIndex} />,
+          9: <Grid onGridClick={chooseIndex} />,
+          10: <Grid onGridClick={chooseIndex} />,
+          11: <Grid onGridClick={chooseIndex} />,
+          12: <Grid onGridClick={chooseIndex} />,
+          13: <Grid onGridClick={chooseIndex} />,
+          14: <Grid onGridClick={chooseIndex} />,
+          15: <Info />,
+        }[whichIndex]
+      }
+      <Footer onFooterClick={chooseIndex} />
+    </>
   );
 }
-
-export default App;
