@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "./App.css";
 import Grid from "./Grid";
 import Info from "./Info";
+import Idea from "./Idea";
+import Anger from "./Anger";
+import Forgive from "./Forgive";
 import Footer from "./Footer";
 
 export default function App() {
@@ -25,10 +28,10 @@ export default function App() {
           8: <Grid onGridClick={chooseIndex} />,
           9: <Grid onGridClick={chooseIndex} />,
           10: <Grid onGridClick={chooseIndex} />,
-          11: <Grid onGridClick={chooseIndex} />,
-          12: <Grid onGridClick={chooseIndex} />,
+          11: <Forgive onFooterClick={chooseIndex} />,
+          12: <Anger onFooterClick={chooseIndex} />,
           13: <Grid onGridClick={chooseIndex} />,
-          14: <Grid onGridClick={chooseIndex} />,
+          14: <Idea onFooterClick={chooseIndex} />,
           15: <Info />,
         }[whichIndex]
       }

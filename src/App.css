@@ -84,6 +84,19 @@ body {
   object-fit: cover;
   background-color: var(--background-page-color);
 }
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.bigWindowForText {
+  height: 80vh;
+}
+.button {
+  height: 10vh;
+  background-color: var(--background-tabA-color);
+  color: var(--background-tabN-color);
+  font-size: 18px;
+}
 .iconsRefferer {
   margin: 1px 10px 1px 10px;
   width: 100%;
