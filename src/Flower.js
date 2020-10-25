@@ -35,7 +35,7 @@ export default function Anger({ onGridClick }) {
       <img
         className="bigPicture"
         src={flowerlinks[nr]}
-        alt={flower}
+        alt={"flower"}
         onClick={sendit}
       />
     </div>
