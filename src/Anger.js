@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-export default function Anger({ onFooterClick }) {
+export default function Anger({ onGridClick }) {
   const [anger, setanger] = useState(undefined);
   const sendit = () => {
     Swal.fire({
@@ -9,7 +9,7 @@ export default function Anger({ onFooterClick }) {
       icon: "success",
       confirmButtonText: "Yes, I do...",
     });
-    onFooterClick(0);
+    onGridClick(0);
   };
   return (
     <div className="containerColumn">
@@ -21,6 +21,7 @@ export default function Anger({ onFooterClick }) {
           placeholder="write here all your anger away..."
           value={anger}
           onChange={(e) => setanger(e.target.value)}
+          required
         />
 
         <input type="submit" value="fuck it" className="button" />

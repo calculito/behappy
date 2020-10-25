@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-export default function Idea({ onFooterClick }) {
+export default function Idea({ onGridClick }) {
   const [idea, setidea] = useState(undefined);
   const sendit = () => {
     Swal.fire({
       title: "Perfect!",
-      text: "We thank you so much...",
+      text: "Thank you so much...",
       icon: "success",
       confirmButtonText: "You're welcome!",
     });
-    onFooterClick(0);
+    onGridClick(0);
   };
   return (
     <div className="containerColumn">
@@ -21,6 +21,7 @@ export default function Idea({ onFooterClick }) {
           placeholder="describe here your idea..."
           value={idea}
           onChange={(e) => setidea(e.target.value)}
+          required
         />
 
         <input type="submit" value="here my idea" className="button" />

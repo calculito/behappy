@@ -64,7 +64,7 @@ export default function Grid({ onGridClick }) {
                 className="logoItems"
                 src={images[i]}
                 alt={images[i]}
-                onClick={() => onGridClick(i)}
+                onClick={() => onGridClick(i + 1)}
               />
             </div>
           );
