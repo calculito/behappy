@@ -8,6 +8,7 @@ import Forgive from "./Forgive";
 import Smile from "./Smile";
 import Thank from "./Thank";
 import Flower from "./Flower";
+import Word from "./Word";
 import Footer from "./Footer";
 
 export default function App() {
@@ -22,7 +23,7 @@ export default function App() {
         {
           0: <Grid onGridClick={chooseIndex} />,
           1: <Flower onGridClick={chooseIndex} />,
-          2: <Info onGridClick={chooseIndex} />,
+          2: <Word onGridClick={chooseIndex} />,
           3: <Grid onGridClick={chooseIndex} />,
           4: <Grid onGridClick={chooseIndex} />,
           5: <Grid onGridClick={chooseIndex} />,
