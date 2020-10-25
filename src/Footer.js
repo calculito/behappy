@@ -52,9 +52,9 @@ function Footer({ onFooterClick }) {
   }, [colorSet]);
 
   return (
-    <div className="header" style={{ height: "30px" }}>
+    <div className="footer">
       <div className="iconsRefferer">
-        <div className="minitext">made with love and sweat by Ion 2020</div>
+        <div className="minitext">made with love and sweat by i.on 2020</div>
         <div className="infoContButtons">
           <button
             className="buttonHW"
