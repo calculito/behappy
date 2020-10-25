@@ -2,7 +2,7 @@ import React from "react";
 import Swal from "sweetalert2";
 export default function Anger({ onGridClick }) {
   const flowerlinks = [
-    "https://www.pexels.com/photo/white-flowers-with-green-leaves-3750764/",
+    "https://images.pexels.com/photos/3750764/pexels-photo-3750764.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "https://images.pexels.com/photos/1596569/pexels-photo-1596569.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     "https://images.pexels.com/photos/4482677/pexels-photo-4482677.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     "https://images.pexels.com/photos/4630010/pexels-photo-4630010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
@@ -35,7 +35,7 @@ export default function Anger({ onGridClick }) {
       <img
         className="bigPicture"
         src={flowerlinks[nr]}
-        alt={flowerlinks[nr]}
+        alt={flower}
         onClick={sendit}
       />
     </div>
