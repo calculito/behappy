@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function Footer({ onFooterClick }) {
+function Footer({ onFooterClick, whichIndex }) {
   const [colorSet, setcolorSet] = useState("gray");
   let varName = [
     "--background-page-color",
@@ -50,6 +50,9 @@ function Footer({ onFooterClick }) {
       return colorSet;
     });
   }, [colorSet]);
+  const onFooterClick1 = () => {
+    whichIndex === 15 ? onFooterClick(0) : onFooterClick(15);
+  };
 
   return (
     <div className="footer">
@@ -59,9 +62,9 @@ function Footer({ onFooterClick }) {
           <button
             className="buttonHW"
             style={{ height: "22px" }}
-            onClick={() => onFooterClick(15)}
+            onClick={onFooterClick1}
           >
-            info
+            {whichIndex === 15 ? "back" : "info"}
           </button>
           <button
             className="buttonHW"

@@ -32,7 +32,7 @@ export default function App() {
           15: <Info />,
         }[whichIndex]
       }
-      <Footer onFooterClick={chooseIndex} />
+      <Footer onFooterClick={chooseIndex} whichIndex={whichIndex} />
     </>
   );
 }
