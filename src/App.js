@@ -9,6 +9,11 @@ import Smile from "./Smile";
 import Thank from "./Thank";
 import Flower from "./Flower";
 import Word from "./Word";
+import Meditate from "./Meditation";
+import Haiku from "./Haiku";
+import Time from "./Time";
+import Number from "./Number";
+import Grate from "./Grate";
 import Footer from "./Footer";
 
 export default function App() {
@@ -24,15 +29,15 @@ export default function App() {
           0: <Grid onGridClick={chooseIndex} />,
           1: <Flower onGridClick={chooseIndex} />,
           2: <Word onGridClick={chooseIndex} />,
-          3: <Grid onGridClick={chooseIndex} />,
-          4: <Grid onGridClick={chooseIndex} />,
+          3: <Meditate onGridClick={chooseIndex} />,
+          4: <Grate onGridClick={chooseIndex} />,
           5: <Grid onGridClick={chooseIndex} />,
           6: <Grid onGridClick={chooseIndex} />,
           7: <Smile onGridClick={chooseIndex} />,
-          8: <Grid onGridClick={chooseIndex} />,
+          8: <Number onGridClick={chooseIndex} />,
           9: <Thank onGridClick={chooseIndex} />,
-          10: <Grid onGridClick={chooseIndex} />,
-          11: <Grid onGridClick={chooseIndex} />,
+          10: <Haiku onGridClick={chooseIndex} />,
+          11: <Time onGridClick={chooseIndex} />,
           12: <Forgive onGridClick={chooseIndex} />,
           13: <Anger onGridClick={chooseIndex} />,
           14: <Grid onGridClick={chooseIndex} />,

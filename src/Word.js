@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Swal from "sweetalert2";
 
 export default function Word({ onGridClick }) {
-  const [word] = useState(undefined);
   const words = [
     "https://www.thefreedictionary.com/headquarter",
     "https://www.thefreedictionary.com/embed",
@@ -48,6 +47,7 @@ export default function Word({ onGridClick }) {
         src={words[nr]}
         width="100%"
         height="90%"
+        title="dictionary"
       ></iframe>
     </div>
   );
