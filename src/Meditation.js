@@ -5,7 +5,7 @@ import MeditateSound from "./images/meditation.mp3";
 import Play from "./images/play.svg";
 import Stop from "./images/stop.svg";
 export default function Meditation({ onGridClick }) {
-  const [play, { stop }] = useSound(MeditateSound, { volume: 0.85 });
+  const [play, { stop }] = useSound(MeditateSound);
   const [isPlaying, setIsPlaying] = useState(false);
   const sendit = () => {
     Swal.fire({

@@ -22,8 +22,8 @@ function Footer({ onFooterClick, whichIndex }) {
   ];
   let coffee = [
     "#dbc1ac",
-    "#ece0d1",
     "#a38068",
+    "#ece0d1",
     "#66462F",
     "#ecede3",
     "invert(0)",

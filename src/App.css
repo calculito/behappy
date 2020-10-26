@@ -65,7 +65,7 @@ body {
   color: grey;
   border: 0px;
   border-radius: 4px;
-  background-color: var(--background-tabA-color);
+  background-color: var(--background-tabN-color);
   cursor: pointer;
   margin-left: 3px;
 }
@@ -107,7 +107,7 @@ body {
 .button {
   height: 10vh;
   margin: 10px 175px 0px 175px;
-  background-color: var(--background-tabA-color);
+  background-color: var(--background-tabN-color);
   color: grey;
   font-size: 18px;
   border-radius: 15px;
