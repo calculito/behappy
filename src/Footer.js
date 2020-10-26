@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 function Footer({ onFooterClick, whichIndex }) {
-  const [colorSet, setcolorSet] = useState("gray");
+  const [colorSet, setcolorSet] = useState("blue");
   let varName = [
     "--background-page-color",
     "--background-tabA-color",

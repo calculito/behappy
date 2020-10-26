@@ -1,5 +1,5 @@
 html {
-  background-color: var(--background-tabN-color);
+  background-color: var(--background-tabA-color);
 }
 body {
   margin: 2vh;
@@ -43,6 +43,7 @@ body {
   margin-left: 15px;
   flex: 1;
   border-radius: 4px;
+  background-color: var(--background-tabN-color);
 }
 .typo {
   text-align: center;

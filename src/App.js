@@ -14,14 +14,25 @@ import Haiku from "./Haiku";
 import Time from "./Time";
 import Number from "./Number";
 import Grate from "./Grate";
+import Quote from "./Quote";
+import Art from "./Art";
 import Footer from "./Footer";
 
 export default function App() {
   const [whichIndex, setwhichIndex] = useState(0);
   const chooseIndex = (i) => {
     setwhichIndex(i);
+    changestatus(i);
   };
-
+  async function changestatus(e) {
+    await fetch(
+      "https://dashybackend.herokuapp.com/postwindowbehappy/".concat(e),
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  }
   return (
     <>
       {
@@ -31,8 +42,8 @@ export default function App() {
           2: <Word onGridClick={chooseIndex} />,
           3: <Meditate onGridClick={chooseIndex} />,
           4: <Grate onGridClick={chooseIndex} />,
-          5: <Grid onGridClick={chooseIndex} />,
-          6: <Grid onGridClick={chooseIndex} />,
+          5: <Quote onGridClick={chooseIndex} />,
+          6: <Art onGridClick={chooseIndex} />,
           7: <Smile onGridClick={chooseIndex} />,
           8: <Number onGridClick={chooseIndex} />,
           9: <Thank onGridClick={chooseIndex} />,
