@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 export default function Anger({ onGridClick }) {
   const [anger, setanger] = useState(undefined);
-  const sendit = () => {
+  const sendit = (e) => {
+    e.preventDefault();
     Swal.fire({
       title: "Perfect!",
       text: "We hope you feel better now...",
