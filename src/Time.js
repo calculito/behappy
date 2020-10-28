@@ -1,25 +1,21 @@
 import React from "react";
 import Swal from "sweetalert2";
+import Timer from "./Timer";
 export default function Time({ onGridClick }) {
-  const [counter, setCounter] = React.useState(60);
   const sendit = () => {
     Swal.fire({
-      title: "Perfect!",
-      text: "We hope you feel better now...",
-      icon: "success",
-      confirmButtonText: "Yes, I do...",
+      title: "Please!",
+      text: `You only have a couple of seconds left...`,
+      confirmButtonText: "ok...",
     });
-    onGridClick(0);
   };
-  React.useEffect(() => {
-    const timer =
-      counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
-    return () => clearInterval(timer);
-  }, [counter]);
   return (
     <div className="containerColumn">
       <div className="bigText" onClick={sendit}>
-        <span className="haiku2x">{counter}</span>
+        <span className="haiku2x">
+          {" "}
+          <Timer onGridClick={onGridClick} />
+        </span>
       </div>
     </div>
   );

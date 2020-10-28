@@ -1,14 +1,13 @@
 import React from "react";
 import Swal from "sweetalert2";
+import Timer from "./Timer";
 export default function Number({ onGridClick }) {
   const sendit = () => {
     Swal.fire({
-      title: "Perfect!",
-      text: "We hope you feel better now...",
-      icon: "success",
-      confirmButtonText: "Yes, I do...",
+      title: "Please!",
+      text: `You only have a couple of seconds left...`,
+      confirmButtonText: "ok...",
     });
-    onGridClick(0);
   };
   const getRandomInt = (min, max) => {
     min = Math.ceil(min);
@@ -18,6 +17,7 @@ export default function Number({ onGridClick }) {
   let nr = getRandomInt(0, 101);
   return (
     <div className="containerColumn">
+      <Timer onGridClick={onGridClick} />
       <div className="bigText" onClick={sendit}>
         <span className="haiku2x">{"+" + nr}</span>
       </div>

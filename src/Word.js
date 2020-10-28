@@ -1,6 +1,6 @@
 import React from "react";
 import Swal from "sweetalert2";
-
+import Timer from "./Timer";
 export default function Word({ onGridClick }) {
   const words = [
     "https://www.thefreedictionary.com/headquarter",
@@ -22,24 +22,40 @@ export default function Word({ onGridClick }) {
     "https://www.thefreedictionary.com/Impignorate",
     "https://www.thefreedictionary.com/antichlor",
     "https://www.thefreedictionary.com/Nudiustertian",
+    "https://www.thefreedictionary.com/diplomacy",
+    "https://www.thefreedictionary.com/agreement",
+    "https://www.thefreedictionary.com/Vernacular",
+    "https://www.thefreedictionary.com/distinguished",
+    "https://www.thefreedictionary.com/eminent",
+    "https://www.thefreedictionary.com/inherent",
+    "https://www.thefreedictionary.com/character",
+    "https://www.thefreedictionary.com/distinctive",
+    "https://www.thefreedictionary.com/attractive",
+    "https://www.thefreedictionary.com/profitable",
+    "https://www.thefreedictionary.com/Yielding",
+    "https://www.thefreedictionary.com/docile",
+    "https://www.thefreedictionary.com/tractable",
+    "https://www.thefreedictionary.com/malleable",
+    "https://www.thefreedictionary.com/pressure",
+    "https://www.thefreedictionary.com/distress",
+    "https://www.thefreedictionary.com/assistance",
   ];
   const sendit = () => {
     Swal.fire({
-      title: "Perfect!",
-      text: "We hope you feel better now...",
-      icon: "success",
-      confirmButtonText: "Yes, I do...",
+      title: "Please!",
+      text: `You only have a couple of seconds left...`,
+      confirmButtonText: "ok...",
     });
-    onGridClick(0);
   };
   const getRandomInt = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
   };
-  let nr = getRandomInt(0, 19);
+  let nr = getRandomInt(0, 35);
   return (
     <div className="containerColumn" onClick={sendit}>
+      <Timer onGridClick={onGridClick} />
       <iframe
         sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation"
         id="sandboxed"

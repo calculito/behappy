@@ -1,31 +1,22 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
+import Timer from "./Timer";
 export default function Anger({ onGridClick }) {
   const [anger, setanger] = useState(undefined);
-  const sendit = (e) => {
-    e.preventDefault();
-    Swal.fire({
-      title: "Perfect!",
-      text: "We hope you feel better now...",
-      icon: "success",
-      confirmButtonText: "Yes, I do...",
-    });
-    onGridClick(0);
-  };
   return (
     <div className="containerColumn">
-      <form className="form" onSubmit={sendit}>
+      <Timer onGridClick={onGridClick} />
+      <form className="form">
         <textarea
           className="bigWindowForText"
           autoFocus
           type="text"
-          placeholder="write here all your anger away..."
+          placeholder={
+            anger === undefined ? "express here your anger ..." : undefined
+          }
           value={anger}
           onChange={(e) => setanger(e.target.value)}
           required
         />
-
-        <input type="submit" value="fuck it" className="button" />
       </form>
     </div>
   );

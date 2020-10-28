@@ -1,5 +1,6 @@
 import React from "react";
 import Swal from "sweetalert2";
+import Timer from "./Timer";
 export default function Quote({ onGridClick }) {
   const haikus = [
     "'I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.'― Marilyn Monroe ",
@@ -16,16 +17,25 @@ export default function Quote({ onGridClick }) {
     "'Insanity is doing the same thing, over and over again, but expecting different results.'― Narcotics Anonymous",
     "'When one door of happiness closes, another opens; but often we look so long at the closed door that we do not see the one which has been opened for us.'― Helen Keller",
     "'The difference between genius and stupidity is: genius has its limits.'― Alexandre Dumas-fils",
-    "'Some people never go crazy. What truly horrible lives they must lead.― Charles Bukowski",
+    "'Some people never go crazy. What truly horrible lives they must lead.'― Charles Bukowski",
+    "'Act as if what you do makes a difference. It does.' - Wiliam James",
+    "'Success is not final, failure is not fatal: it is the courage to continue that counts.' - Winston Churchill",
+    "'Never bend your head. Always hold it high. Look the world straight in the eye.' - Helen Keller",
+    "'What you get by achieving your goals is not as important as what you become by achieving your goals.' - Zig Ziglar",
+    "'Believe you can and you're halfway there.' - Theodore Roosevelt",
+    "'I can't change the direction of the wind, but I can adjust my sails to always reach my destination.' - Jimmy Dean",
+    "'It is our attitude at the beginning of a difficult task which, more than anything else, will affect its successful outcome.' - William James",
+    "'Limit your 'always' and your 'nevers.'' - Amy Poehler",
+    "'Nothing is impossible. The word itself says 'I'm possible!'' - Audrey Hepburn",
+    "'Sometimes you will never know the value of a moment, until it becomes a memory.' - Dr. Seuss",
+    "'Happiness often sneaks in through a door you didn't know you left open.' - John Barrymore",
   ];
   const sendit = () => {
     Swal.fire({
-      title: "Perfect!",
-      text: "We hope you feel better now...",
-      icon: "success",
-      confirmButtonText: "Yes, I do...",
+      title: "Please!",
+      text: `You only have a couple of seconds left...`,
+      confirmButtonText: "ok...",
     });
-    onGridClick(0);
   };
 
   const getRandomInt = (min, max) => {
@@ -33,10 +43,11 @@ export default function Quote({ onGridClick }) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
   };
-  let nr = getRandomInt(0, 16);
+  let nr = getRandomInt(0, 25);
 
   return (
     <div className="containerColumn">
+      <Timer onGridClick={onGridClick} />
       <div className="bigText" onClick={sendit}>
         <span className="haiku">{haikus[nr]}</span>
       </div>

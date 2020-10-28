@@ -1,30 +1,24 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
+import Timer from "./Timer";
 export default function Grate({ onGridClick }) {
-  const [idea, setidea] = useState(undefined);
-  const sendit = () => {
-    Swal.fire({
-      title: "Perfect!",
-      text: "Thank you so much...",
-      icon: "success",
-      confirmButtonText: "You're welcome!",
-    });
-    onGridClick(0);
-  };
+  const [gift, setgift] = useState(undefined);
   return (
     <div className="containerColumn">
-      <form className="form" onSubmit={sendit}>
+      <Timer onGridClick={onGridClick} />
+      <form className="form">
         <textarea
           className="bigWindowForText"
           autoFocus
           type="text"
-          placeholder="send someone a virtual gift..."
-          value={idea}
-          onChange={(e) => setidea(e.target.value)}
+          placeholder={
+            gift === undefined
+              ? "send someone a virtual gift...(you don't really send anything)"
+              : undefined
+          }
+          value={gift}
+          onChange={(e) => setgift(e.target.value)}
           required
         />
-
-        <input type="submit" value="send my gift" className="button" />
       </form>
     </div>
   );

@@ -1,30 +1,22 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
-
+import Timer from "./Timer";
 export default function Thank({ onGridClick }) {
-  const [thank] = useState(undefined);
-  const sendit = () => {
-    Swal.fire({
-      title: "Perfect!",
-      text: "We hope you feel better now...",
-      icon: "success",
-      confirmButtonText: "Yes, I do...",
-    });
-    onGridClick(0);
-  };
+  const [thank, setthank] = useState(undefined);
   return (
     <div className="containerColumn">
-      <form className="form" onSubmit={sendit}>
+      <Timer onGridClick={onGridClick} />
+      <form className="form">
         <textarea
           className="bigWindowForText"
           autoFocus
           type="text"
-          placeholder="say thank you to someone..."
+          placeholder={
+            thank === undefined ? "say thank you to someone..." : undefined
+          }
           value={thank}
+          onChange={(e) => setthank(e.target.value)}
           required
         />
-
-        <input type="submit" value="Thank" className="button" />
       </form>
     </div>
   );

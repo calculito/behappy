@@ -1,19 +1,8 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
+import Timer from "./Timer";
 export default function Idea({ onGridClick }) {
   const [idea, setidea] = useState(undefined);
-  const sendit = (e) => {
-    e.preventDefault();
-    Swal.fire({
-      title: "Perfect!",
-      text: "Thank you so much...",
-      icon: "success",
-      confirmButtonText: "You're welcome!",
-    });
-    onGridClick(0);
-    changestatus(idea);
-  };
-  console.log(idea);
+  onGridClick === 0 && console.log(0);
   async function changestatus(idea) {
     const data = { ideadb: idea };
     console.log(data);
@@ -30,7 +19,8 @@ export default function Idea({ onGridClick }) {
   }
   return (
     <div className="containerColumn">
-      <form className="form" onSubmit={sendit}>
+      <Timer onGridClick={onGridClick} />
+      <form className="form">
         <textarea
           className="bigWindowForText"
           autoFocus
@@ -40,8 +30,6 @@ export default function Idea({ onGridClick }) {
           onChange={(e) => setidea(e.target.value)}
           required
         />
-
-        <input type="submit" value="here my idea" className="button" />
       </form>
     </div>
   );

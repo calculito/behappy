@@ -4,20 +4,20 @@ import useSound from "use-sound";
 import MeditateSound from "./images/meditation.mp3";
 import Play from "./images/play.svg";
 import Stop from "./images/stop.svg";
+import Timer from "./Timer";
 export default function Meditation({ onGridClick }) {
   const [play, { stop }] = useSound(MeditateSound);
   const [isPlaying, setIsPlaying] = useState(false);
   const sendit = () => {
     Swal.fire({
-      title: "Perfect!",
-      text: "We hope you feel better now...",
-      icon: "success",
-      confirmButtonText: "Yes, I do...",
+      title: "Please!",
+      text: `You only have a couple of seconds left...`,
+      confirmButtonText: "ok...",
     });
-    onGridClick(0);
   };
   return (
     <div className="containerColumn">
+      <Timer onGridClick={onGridClick} />
       <div className="bigText">
         {isPlaying === false ? (
           <img
@@ -37,8 +37,7 @@ export default function Meditation({ onGridClick }) {
             src={Stop}
             alt="Play button"
             onClick={() => {
-              setIsPlaying(false);
-              stop();
+              setIsPlaying(true);
               sendit();
             }}
           />

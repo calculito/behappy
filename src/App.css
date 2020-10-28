@@ -25,7 +25,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* fraction*/
   align-items: center;
   justify-content: center;
-  align-items: center;
+  text-align: center;
   grid-gap: 10px;
 }
 .containerColumn {
@@ -34,12 +34,24 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+.timer {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-tabA-color);
+  color: var(--font-dark-color);
+  border: 1px solid var(--background-tabN-color);
+  border-radius: 3px;
+}
 .paper {
   display: flex;
   justify-content: center;
-  width: 15vw;
-  height: 15vw;
+  justify-self: center;
+  width: 10vw;
+  height: 10vw;
   margin-left: 15px;
   flex: 1;
   border-radius: 4px;
@@ -77,8 +89,8 @@ body {
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-  width: 100%;
-  height: 100%;
+  width: 10vw;
+  height: 10vw;
   cursor: pointer;
 }
 .logoItems:hoover {
@@ -103,6 +115,7 @@ body {
   height: 78vh;
   font-size: 24px;
   border-radius: 5px;
+  margin-top: 22px;
 }
 .button {
   height: 10vh;
@@ -115,10 +128,11 @@ body {
 .bigPicture {
   max-width: 100%;
   max-height: 100%;
-  align-self: flex-start;
+  align-self: center;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   border-radius: 8px;
+  background-color: var(--background-tabN-color);
 }
 .bigText {
   width: 100%;
@@ -130,7 +144,7 @@ body {
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   border-radius: 8px;
-  background-color: var(--background-tabA-color);
+  background-color: var(--background-tabN-color);
 }
 .haiku {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -138,7 +152,7 @@ body {
   font-size: 26px;
   margin: auto;
   text-align: center;
-  max-width: 50vw;
+  max-width: 60vw;
   padding: 30% 0;
   line-height: 30px;
   display: table-cell;
@@ -156,11 +170,10 @@ body {
   max-width: 80vw;
   padding: 30% 0;
   line-height: 30px;
-  display: table-cell;
-  vertical-align: middle;
-  overflow-wrap: break-word;
-  flex: 1;
+  display: flex;
+  justify-content: center;
   color: var(--font-dark-color);
+  justify-content: center;
 }
 .iconsRefferer {
   margin: 1px 10px 1px 10px;
@@ -183,6 +196,7 @@ body {
   background-color: black;
   width: 100%;
   height: 100%;
+  border-radius: 10px;
 }
 @media only screen and (max-width: 600px) {
   body {
@@ -195,6 +209,10 @@ body {
     width: 25vw;
     height: 25vw;
     margin-left: 10px;
+  }
+  .logoItems {
+    width: 25vw;
+    height: 25vw;
   }
   .button {
     height: 10vh;
