@@ -20,18 +20,15 @@ import Footer from "./Footer";
 
 export default function App() {
   const [whichIndex, setwhichIndex] = useState(0);
-  const chooseIndex = (i) => {
-    setwhichIndex(i);
-    changestatus(i);
-  };
-  async function changestatus(e) {
+  async function chooseIndex(i) {
     await fetch(
-      "https://dashybackend.herokuapp.com/postwindowbehappy/".concat(e),
+      "https://dashybackend.herokuapp.com/postwindowbehappy/".concat(i),
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
       }
     );
+    setwhichIndex(i);
   }
   return (
     <>

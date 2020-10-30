@@ -12,14 +12,12 @@ export default function Timer({ onGridClick }) {
       confirmButtonText: "Yes, I do...",
     });
     onGridClick(0);
-    setCounter(60);
   };
 
   React.useEffect(() => {
     const timer =
-      counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+      counter > 0 ? setInterval(() => setCounter(counter - 1), 1000) : sendit();
     return () => clearInterval(timer);
   }, [counter]);
-  counter === 0 && sendit();
   return <div className="timer">{counter}</div>;
 }
