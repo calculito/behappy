@@ -116,6 +116,9 @@ body {
   font-size: 24px;
   border-radius: 5px;
   margin-top: 22px;
+  border: none;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
 }
 .button {
   height: 10vh;
@@ -175,6 +178,27 @@ body {
   color: var(--font-dark-color);
   justify-content: center;
 }
+.variable {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  margin: auto;
+  text-align: left;
+  max-width: 80vw;
+  padding: 8px 0;
+  line-height: 15px;
+  display: table-cell;
+  vertical-align: text-top;
+  overflow-wrap: break-word;
+  flex: 1;
+  color: var(--font-dark-color);
+}
+.variablen {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 .iconsRefferer {
   margin: 1px 10px 1px 10px;
   width: 100%;
@@ -197,6 +221,15 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 10px;
+}
+::placeholder {
+  color: lightgrey;
+  font-size: 18px;
+  text-align: center;
+  padding-top: 10px;
+}
+a {
+  color: var(--font-dark-color);
 }
 @media only screen and (max-width: 600px) {
   body {

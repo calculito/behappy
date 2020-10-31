@@ -42,12 +42,17 @@ export default function Idea({ onGridClick }) {
           className="bigWindowForText"
           autoFocus
           type="text"
-          placeholder="describe here your idea..."
+          placeholder="That is just a placeholder. Type your text to describe your idea. Happiness is a now thing. Don't wait until later to be happy. Share your idea, how you manage to feel better..."
           value={idea}
           onChange={(e) => setidea(e.target.value)}
           required
         />
       </form>
+      <div className="minitext">
+        <a href="https://www.happier.com/blog/25-ways-to-feel-happier-in-the-next-5-minutes/">
+          see here more...
+        </a>
+      </div>
     </div>
   );
 }

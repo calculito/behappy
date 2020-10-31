@@ -47,7 +47,7 @@ export default function App() {
           10: <Haiku onGridClick={chooseIndex} />,
           11: <Time onGridClick={chooseIndex} />,
           12: <Forgive onGridClick={chooseIndex} />,
-          13: <Anger onGridClick={chooseIndex} />,
+          13: <Anger onGridClick={chooseIndex} whichIndex={whichIndex} />,
           14: <Grid onGridClick={chooseIndex} />,
           15: <Idea onGridClick={chooseIndex} />,
           16: <Info />,
