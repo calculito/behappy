@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Timer from "./Timer";
-export default function Anger({ onGridClick, whichIndex }) {
+export default function Anger({ onGridClick }) {
   const [anger, setanger] = useState(undefined);
   return (
     <div className="containerColumn">

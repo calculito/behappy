@@ -44,7 +44,7 @@ export default function Art({ onGridClick }) {
       confirmButtonText: "ok...",
     });
   };
-
+  //generate a random number between min and max
   const getRandomInt = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
