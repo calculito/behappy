@@ -17,6 +17,7 @@ export default function Decision({ onGridClick }) {
     "5 years ago I would have said yes!",
     "My future me would appreciate an yes!",
     "This decision in line with my long-term goals!",
+    "If I decide for NO, I will regret it",
   ];
 
   const change = () => {
@@ -24,11 +25,13 @@ export default function Decision({ onGridClick }) {
       setQuestion(() => setQuestion(question + 1));
   };
   const changePercentPlus = () => {
-    percent < 100 && setPercent(() => setPercent(percent + 10));
+    question < 13 &&
+      percent < 100 &&
+      setPercent(() => setPercent(percent + 10));
     change();
   };
   const changePercentMinus = () => {
-    percent > 10 && setPercent(() => setPercent(percent - 10));
+    question < 13 && percent > 10 && setPercent(() => setPercent(percent - 10));
     change();
   };
   return (
@@ -36,7 +39,7 @@ export default function Decision({ onGridClick }) {
       <Timer onGridClick={onGridClick} />
       <div className="containerColumn">
         <span className="haikusmall">{description[question]}</span>
-        {question === 12 && <span className="haikusmall">That's it:</span>}
+        {question === 13 && <span className="haikusmall">That's it:</span>}
         <div className="percent">
           {" "}
           <div

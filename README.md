@@ -1,3 +1,5 @@
+That's a tool which should help you to feel better. Maybe even to make you happy. You only have 60 seconds. Use it between two meetings, before you make an inportant call or before you take an important decision. If you have any ideas, how I can improve the tool, don't hesitate to send me your idea. Simply use the last icon on the right! Thank you and I hope you feel better!
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
