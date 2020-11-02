@@ -13,7 +13,7 @@ import Haiku from "../src/images/haiku.png";
 import Time from "../src/images/time.png";
 import Forgive from "../src/images/forgive.png";
 import Anger from "../src/images/anger.png";
-import Sing from "../src/images/sing.png";
+import Decision from "../src/images/decision.png";
 import Idea from "../src/images/idea.png";
 
 const content = [
@@ -30,7 +30,7 @@ const content = [
   "take time for yourself",
   "forgive someone",
   "send me all your frust",
-  "sing with me",
+  "decision helper",
   "send us an idea",
 ];
 const images = {
@@ -47,7 +47,7 @@ const images = {
   10: Time,
   11: Forgive,
   12: Anger,
-  13: Sing,
+  13: Decision,
   14: Idea,
 };
 

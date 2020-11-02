@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Grid from "./Grid";
+import Decision from "./Decision";
 import Info from "./Info";
 import Idea from "./Idea";
 import Anger from "./Anger";
@@ -48,7 +49,7 @@ export default function App() {
           11: <Time onGridClick={chooseIndex} />,
           12: <Forgive onGridClick={chooseIndex} />,
           13: <Anger onGridClick={chooseIndex} whichIndex={whichIndex} />,
-          14: <Grid onGridClick={chooseIndex} />,
+          14: <Decision onGridClick={chooseIndex} />,
           15: <Idea onGridClick={chooseIndex} />,
           16: <Info />,
         }[whichIndex]

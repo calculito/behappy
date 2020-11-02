@@ -57,6 +57,8 @@ body {
   flex: 1;
   border-radius: 4px;
   background-color: var(--background-tabN-color);
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
 }
 .typo {
   text-align: center;
@@ -200,6 +202,12 @@ body {
   max-width: 80vw;
   padding: 30px 0;
   color: var(--font-dark-color);
+}
+.percent {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 .variable {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
