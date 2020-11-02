@@ -7,7 +7,7 @@ import Grate from "../src/images/grate.png";
 import Quote from "../src/images/quote.png";
 import Art from "../src/images/art.png";
 import Smile from "../src/images/smile.png";
-import Number from "../src/images/number.png";
+import Breath from "../src/images/breath.png";
 import Thank from "../src/images/thank.png";
 import Haiku from "../src/images/haiku.png";
 import Time from "../src/images/time.png";
@@ -24,7 +24,7 @@ const content = [
   "get a quote",
   "see art",
   "give yourself a smile",
-  "see a positive number",
+  "relaxing breath",
   "thank someone (us)",
   "read a haiku",
   "take time for yourself",
@@ -41,7 +41,7 @@ const images = {
   4: Quote,
   5: Art,
   6: Smile,
-  7: Number,
+  7: Breath,
   8: Thank,
   9: Haiku,
   10: Time,

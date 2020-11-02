@@ -12,7 +12,7 @@ import Word from "./Word";
 import Meditate from "./Meditation";
 import Haiku from "./Haiku";
 import Time from "./Time";
-import Number from "./Number";
+import Breath from "./Breath";
 import Grate from "./Grate";
 import Quote from "./Quote";
 import Art from "./Art";
@@ -42,7 +42,7 @@ export default function App() {
           5: <Quote onGridClick={chooseIndex} />,
           6: <Art onGridClick={chooseIndex} />,
           7: <Smile onGridClick={chooseIndex} />,
-          8: <Number onGridClick={chooseIndex} />,
+          8: <Breath onGridClick={chooseIndex} />,
           9: <Thank onGridClick={chooseIndex} />,
           10: <Haiku onGridClick={chooseIndex} />,
           11: <Time onGridClick={chooseIndex} />,
