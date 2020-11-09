@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, app } from "react";
 import "./App.css";
 import Grid from "./Grid";
 import Decision from "./Decision";
@@ -29,6 +29,10 @@ export default function App() {
         headers: { "Content-Type": "application/json" },
       }
     );
+    await fetch("https://take60sec4u.herokuapp.com/", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
     setwhichIndex(i);
   }
   return (
