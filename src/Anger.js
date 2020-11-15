@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Timer from "./Timer";
+import Piano from "./Piano";
 export default function Anger({ onGridClick }) {
   const [anger, setanger] = useState(undefined);
   return (
     <div className="containerColumn">
       <Timer onGridClick={onGridClick} />
+      <Piano />
       <form className="form">
         <textarea
           className="bigWindowForText"

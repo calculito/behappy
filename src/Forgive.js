@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Timer from "./Timer";
+import Piano from "./Piano";
 export default function Forgive({ onGridClick }) {
   const [forgive, setforgive] = useState(undefined);
   return (
     <div className="containerColumn">
+      <Piano />
       <Timer onGridClick={onGridClick} />
       <form className="form">
         <textarea

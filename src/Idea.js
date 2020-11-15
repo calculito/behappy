@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import Piano from "./Piano";
 export default function Idea({ onGridClick }) {
   const [idea, setidea] = useState(undefined);
   const [counter, setCounter] = React.useState(60);
@@ -36,6 +37,7 @@ export default function Idea({ onGridClick }) {
 
   return (
     <div className="containerColumn">
+      <Piano />
       <div className="timer">{counter}</div>
       <form className="form">
         <textarea

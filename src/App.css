@@ -259,7 +259,7 @@ body {
 }
 ::placeholder {
   color: lightgrey;
-  font-size: 18px;
+  font-size: 15px;
   text-align: center;
   padding-top: 10px;
 }
