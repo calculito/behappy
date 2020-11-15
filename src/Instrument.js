@@ -20,7 +20,7 @@ const Instrument = ({ instrumentName, startNote, endNote, keyboardMap }) => {
   const getNoteFromKeyboardKey = (keyboardKey) => {
     return keyboardMap[keyboardKey.toUpperCase()];
   };
-
+  console.log(state.notesPlaying[0]);
   const handleKeyDown = (e) => {
     if (isRegularKey(e) && !e.repeat) {
       const note = getNoteFromKeyboardKey(e.key);

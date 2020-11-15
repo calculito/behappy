@@ -3,6 +3,7 @@ import Timer from "./Timer";
 import Piano from "./Piano";
 export default function Anger({ onGridClick }) {
   const [anger, setanger] = useState(undefined);
+  console.log(anger);
   return (
     <div className="containerColumn">
       <Timer onGridClick={onGridClick} />
