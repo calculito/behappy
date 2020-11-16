@@ -11,6 +11,7 @@ export default function Timer({ onGridClick }) {
       icon: "success",
       confirmButtonText: "Yes, I do...",
     });
+    window.navigator.vibrate(100);
     onGridClick(0);
   };
 
