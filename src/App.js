@@ -29,10 +29,10 @@ export default function App() {
         headers: { "Content-Type": "application/json" },
       }
     );
-    await fetch("https://take60sec4u.herokuapp.com/", {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    });
+    //await fetch("https://take60sec4u.herokuapp.com/", {
+    // method: "GET",
+    // headers: { "Content-Type": "application/json" },
+    //});
     setwhichIndex(i);
   }
   return (
