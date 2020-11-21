@@ -290,4 +290,8 @@ a {
     font-size: 18px;
     border-radius: 15px;
   }
+  .minitext {
+    font-size: 5px;
+    align-self: center;
+  }
 }
