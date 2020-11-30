@@ -53,7 +53,7 @@ export default function Flower({ onGridClick }) {
   ];
   const sendit = () => {
     Swal.fire({
-      title: "Please!",
+      title: "C'mon!",
       text: `You only have a couple of seconds left...`,
       confirmButtonText: "ok...",
     });

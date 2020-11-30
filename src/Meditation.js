@@ -10,7 +10,7 @@ export default function Meditation({ onGridClick }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const sendit = () => {
     Swal.fire({
-      title: "Please!",
+      title: "C'mon!",
       text: `You only have a couple of seconds left...`,
       confirmButtonText: "ok...",
     });
@@ -18,7 +18,11 @@ export default function Meditation({ onGridClick }) {
   return (
     <div className="containerColumn">
       <Timer onGridClick={onGridClick} />
-      <div className="bigText">
+
+      <div className="bigTextcolumn ">
+        <span className="typo">
+          Press the 'Play' button, close your eyes and enjoy the energy!{" "}
+        </span>
         {isPlaying === false ? (
           <img
             key="Start"

@@ -39,6 +39,7 @@ export default function Decision({ onGridClick }) {
       <Timer onGridClick={onGridClick} />
       <div className="containerColumn">
         <span className="haikusmall">{description[question]}</span>
+        <span className="typo">(Click on one of the buttons below)</span>
         {question === 13 && <span className="haikusmall">That's it:</span>}
         <div className="percent">
           {" "}
@@ -47,14 +48,14 @@ export default function Decision({ onGridClick }) {
             onClick={changePercentPlus}
             style={{ backgroundColor: "lightgreen" }}
           >
-            <span className="haikusmall">yes = {percent}% </span>{" "}
+            <span className="haikusmall">yes ({percent}%) </span>{" "}
           </div>
           <div
             className="paper"
             onClick={changePercentMinus}
             style={{ backgroundColor: "lightsalmon" }}
           >
-            <span className="haikusmall">no = {100 - percent}%</span>
+            <span className="haikusmall">no ({100 - percent}%)</span>
           </div>
         </div>
       </div>

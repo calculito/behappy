@@ -1,4 +1,4 @@
-import React, { useState, app } from "react";
+import React, { useState, app, useEffect } from "react";
 import "./App.css";
 import Grid from "./Grid";
 import Decision from "./Decision";
@@ -18,9 +18,18 @@ import Grate from "./Grate";
 import Quote from "./Quote";
 import Art from "./Art";
 import Footer from "./Footer";
+import Swal from "sweetalert2";
 
 export default function App() {
   const [whichIndex, setwhichIndex] = useState(0);
+  useEffect(() => {
+    Swal.fire({
+      title: "Welcome!",
+      text:
+        "60 seconds can be a long time! Choose what you want to do for the next 60 seconds and enjoy it!",
+      confirmButtonText: "Ok, got it",
+    });
+  }, []);
   async function chooseIndex(i) {
     await fetch(
       "https://dashybackend.herokuapp.com/postwindowbehappy/".concat(i),
@@ -35,6 +44,7 @@ export default function App() {
     //});
     setwhichIndex(i);
   }
+
   return (
     <>
       {
