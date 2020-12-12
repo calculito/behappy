@@ -6,7 +6,7 @@ import Info from "./Info";
 import Idea from "./Idea";
 import Anger from "./Anger";
 import Forgive from "./Forgive";
-import Smile from "./Smile";
+import Exercise from "./Exercise";
 import Thank from "./Thank";
 import Flower from "./Flower";
 import Word from "./Word";
@@ -26,7 +26,7 @@ export default function App() {
     Swal.fire({
       title: "Welcome!",
       text:
-        "60 seconds can be a long time! Choose what you want to do for the next 60 seconds and enjoy it!",
+        "Take a break of 60 seconds and enjoy the beauty of flowers, the power of positive quotes or get rid of anger and stress!",
       confirmButtonText: "Ok, got it",
     });
   }, []);
@@ -56,7 +56,7 @@ export default function App() {
           4: <Grate onGridClick={chooseIndex} />,
           5: <Quote onGridClick={chooseIndex} />,
           6: <Art onGridClick={chooseIndex} />,
-          7: <Smile onGridClick={chooseIndex} />,
+          7: <Exercise onGridClick={chooseIndex} />,
           8: <Breath onGridClick={chooseIndex} />,
           9: <Thank onGridClick={chooseIndex} />,
           10: <Haiku onGridClick={chooseIndex} />,
