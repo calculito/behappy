@@ -53,11 +53,14 @@ function Footer({ onFooterClick, whichIndex }) {
   const onFooterClick1 = () => {
     whichIndex === 16 ? onFooterClick(0) : onFooterClick(16);
   };
+  const onFooterClick2 = () => {
+    whichIndex === 17 ? onFooterClick(0) : onFooterClick(17);
+  };
 
   return (
     <div className="footer">
       <div className="iconsRefferer">
-        <div className="minitext">made with love and sweat by i.on 2020</div>
+        <div className="minitext" onClick={onFooterClick2}>made with love and sweat by i.on 2020</div>
         <div className="infoContButtons">
           <button
             className="buttonHW"

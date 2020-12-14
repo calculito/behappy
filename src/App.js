@@ -19,6 +19,7 @@ import Quote from "./Quote";
 import Art from "./Art";
 import Footer from "./Footer";
 import Swal from "sweetalert2";
+import Takenotes from "./Takenotes";
 
 export default function App() {
   const [whichIndex, setwhichIndex] = useState(0);
@@ -66,6 +67,7 @@ export default function App() {
           14: <Decision onGridClick={chooseIndex} />,
           15: <Idea onGridClick={chooseIndex} />,
           16: <Info />,
+          17: <Takenotes />,
         }[whichIndex]
       }
       <Footer onFooterClick={chooseIndex} whichIndex={whichIndex} />
