@@ -11,7 +11,7 @@ export default function Takenotes() {
           <span>🔍 </span>Search
         </div>
         <div className="titlecontainer">
-          <div className="del">❎</div>
+          <div className="de del">❎</div>
           <textarea
             className="title"
             autoFocus
@@ -22,7 +22,7 @@ export default function Takenotes() {
             required
           />
 
-          <div className="del">✅</div>
+          <div className="de der">✅</div>
         </div>
         <div className="title">{title === undefined ? undefined : "☆☆☆☆☆"}</div>
         <textarea
