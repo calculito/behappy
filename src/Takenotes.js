@@ -1,14 +1,24 @@
 import React, { useState } from "react";
+import { isNotEmittedStatement } from "typescript";
 
 export default function Takenotes() {
   const [title, settitle] = useState(undefined);
   const [note, setnote] = useState(undefined);
   let categories = ["text", "theatre", "important", "personal"];
+  const del = () => {
+    setnote(undefined);
+    settitle(undefined);
+    Array.from(document.querySelectorAll("textarea")).forEach(
+      (input) => (input.value = "")
+    );
+  };
   return (
     <div className="containerColumn">
       <div className="bigTextcolumn">
         <div className="titlecontainer">
-          <div className="de del">❎</div>
+          <div className="de del" onClick={del}>
+            ❎
+          </div>
           <div className="searchfield">
             {" "}
             <span>🔍 </span>Search
@@ -17,6 +27,7 @@ export default function Takenotes() {
         </div>
         <div className="titlecontainer">
           <textarea
+            name="title"
             className="title"
             autoFocus
             type="text"
@@ -28,6 +39,7 @@ export default function Takenotes() {
         </div>
         <div className="title">{title === undefined ? undefined : "☆☆☆☆☆"}</div>
         <textarea
+          name="notes"
           className="notes"
           type="text"
           placeholder={note === undefined ? "write here..." : undefined}
@@ -35,7 +47,6 @@ export default function Takenotes() {
           onChange={(e) => setnote(e.target.value)}
           required
         />
-        <div className="categories">⇦ categories ⇨</div>
         <div className="containercat">
           {categories.map((data, i) => {
             return (
