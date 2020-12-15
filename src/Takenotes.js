@@ -3,15 +3,19 @@ import React, { useState } from "react";
 export default function Takenotes() {
   const [title, settitle] = useState(undefined);
   const [note, setnote] = useState(undefined);
+  let categories = ["text", "theatre", "important", "personal"];
   return (
     <div className="containerColumn">
       <div className="bigTextcolumn">
-        <div className="searchfield">
-          {" "}
-          <span>🔍 </span>Search
-        </div>
         <div className="titlecontainer">
           <div className="de del">❎</div>
+          <div className="searchfield">
+            {" "}
+            <span>🔍 </span>Search
+          </div>
+          <div className="de der">✅</div>
+        </div>
+        <div className="titlecontainer">
           <textarea
             className="title"
             autoFocus
@@ -21,8 +25,6 @@ export default function Takenotes() {
             onChange={(e) => settitle(e.target.value)}
             required
           />
-
-          <div className="de der">✅</div>
         </div>
         <div className="title">{title === undefined ? undefined : "☆☆☆☆☆"}</div>
         <textarea
@@ -34,6 +36,15 @@ export default function Takenotes() {
           required
         />
         <div className="categories">⇦ categories ⇨</div>
+        <div className="containercat">
+          {categories.map((data, i) => {
+            return (
+              <div key={"cat" + i} className="containercat">
+                {data}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
