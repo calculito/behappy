@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { isNotEmittedStatement } from "typescript";
 import Swal from "sweetalert2";
+import add from "../src/images/+.png";
+import dele from "../src/images/X.png";
+import lupe from "../src/images/L.png";
 export default function Takenotes() {
   const [title, settitle] = useState(undefined);
   const [note, setnote] = useState(undefined);
@@ -49,17 +52,10 @@ export default function Takenotes() {
   return (
     <div className="containerColumn">
       <div className="bigTextcolumn">
-        <div className="titlecontainer">
-          <div className="de del" onClick={del}>
-            ❎
-          </div>
-          <div className="searchfield">
-            {" "}
-            <span>🔍 SEARCH</span>
-          </div>
-          <div className="de der" onClick={savenew}>
-            ✅
-          </div>
+        <div className="iconscontainer">
+          <img className="icons" src={dele} alt="delete" onClick={del} />
+          <img className="icons" src={lupe} alt="lupe" />
+          <img className="icons" src={add} alt="add" onClick={savenew} />
         </div>
 
         <textarea
@@ -83,7 +79,7 @@ export default function Takenotes() {
           required
         />
 
-        <div className="title">"☆☆☆☆☆"</div>
+        <div>☆☆☆☆☆</div>
         <div className="containercat">
           {categories.map((data, i) => {
             return (

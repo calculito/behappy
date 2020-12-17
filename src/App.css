@@ -36,39 +36,16 @@ body {
   display: flex;
   flex-direction: column;
 }
-.searchfield {
-  width: 100%;
-  height: 8vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.icons {
+  padding: 5px 10px 5px 10px;
+  height: 30px;
+  width: 30px;
 }
-
-.de {
-  min-width: 4%;
-  padding: 0 5px 0 5px;
-  align-self: center;
-  vertical-align: middle;
-  background-color: var(--background-tabA-color);
-  font-size: 22px;
-  width: 7vw;
-  padding: 15px;
-}
-
-.del {
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-.der {
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-.titlecontainer {
-  width: 100%;
+.iconscontainer {
+  width: 96%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--background-tabA-color);
 }
@@ -80,7 +57,7 @@ body {
 }
 
 .title {
-  width: 98%;
+  width: 96%;
   text-align: center;
   justify-self: flex-end;
   align-self: center;
@@ -90,14 +67,20 @@ body {
   font-size: 18px;
   vertical-align: middle;
   border-bottom: 1px solid var(--background-tabA-color);
+  background: transparent;
+  color: transparent;
+  resize: none;
 }
 .notes {
   min-height: 66%;
-  width: 98%;
+  width: 96%;
   border-bottom: 2px solid var(--background-tabA-color);
   outline-color: transparent;
   outline-width: 0;
   border: none;
+  background: transparent;
+  color: transparent;
+  resize: none;
 }
 .timer {
   position: absolute;
