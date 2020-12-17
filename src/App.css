@@ -40,6 +40,7 @@ body {
   padding: 5px 10px 5px 10px;
   height: 30px;
   width: 30px;
+  cursor: pointer;
 }
 .iconscontainer {
   width: 96%;
@@ -54,6 +55,7 @@ body {
   align-items: center;
   overflow: auto;
   padding: 15px 15px 0 15px;
+  cursor: pointer;
 }
 
 .title {
@@ -68,7 +70,6 @@ body {
   vertical-align: middle;
   border-bottom: 1px solid var(--background-tabA-color);
   background: transparent;
-  color: transparent;
   resize: none;
 }
 .notes {
@@ -79,8 +80,13 @@ body {
   outline-width: 0;
   border: none;
   background: transparent;
-  color: transparent;
   resize: none;
+}
+.starSymbols {
+  padding: 0px 2px 0px 0px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 .timer {
   position: absolute;

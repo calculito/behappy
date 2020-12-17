@@ -4,6 +4,8 @@ import Swal from "sweetalert2";
 import add from "../src/images/+.png";
 import dele from "../src/images/X.png";
 import lupe from "../src/images/L.png";
+import starblack from "../src/images/starblack.png";
+import stargold from "../src/images/stargold.png";
 export default function Takenotes() {
   const [title, settitle] = useState(undefined);
   const [note, setnote] = useState(undefined);
@@ -15,6 +17,7 @@ export default function Takenotes() {
     setnote(undefined);
     settitle(undefined);
     setcat(0);
+    setstars(0);
     Array.from(document.querySelectorAll("textarea")).forEach(
       (input) => (input.value = "")
     );
@@ -49,6 +52,21 @@ export default function Takenotes() {
       confirmButtonText: "OK",
     });
   };
+  function StarsGen() {
+    let starsall = [];
+    for (let i = 0; i < 5; i++) {
+      starsall.push(
+        <img
+          className="starSymbols"
+          src={stars > i ? stargold : starblack}
+          alt="star"
+          key={i}
+          onClick={() => setstars(i + 1)}
+        />
+      );
+    }
+    return starsall;
+  }
   return (
     <div className="containerColumn">
       <div className="bigTextcolumn">
@@ -78,8 +96,9 @@ export default function Takenotes() {
           onChange={(e) => setnote(e.target.value)}
           required
         />
-
-        <div>☆☆☆☆☆</div>
+        <div className="containercat">
+          <StarsGen />
+        </div>
         <div className="containercat">
           {categories.map((data, i) => {
             return (
