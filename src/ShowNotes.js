@@ -5,13 +5,17 @@ import dele from "../src/images/X.png";
 import lupe from "../src/images/L.png";
 import starblack from "../src/images/starblack.png";
 import stargold from "../src/images/stargold.png";
+import axios from "axios";
+import API from "./Api.js";
 import { setTokenSourceMapRange } from "typescript";
 
 export default function ShowNotes({ onBackClick }) {
   const [cat, setcat] = useState(0);
-  const [oki, setoki] = useState(0);
   const [stars, setstars] = useState(0);
   const [allnotes, setallnotes] = useState(undefined);
+  const [appState, setAppState] = useState({
+    loading: null,
+  });
   const categories = ["text", "theatre", "important", "personal"];
   const bgcolors = [
     "lightgray",
@@ -26,24 +30,16 @@ export default function ShowNotes({ onBackClick }) {
   };
 
   useEffect(() => {
-    newnote();
-  }, [stars, cat, oki]);
+    axios
+      .get(`https://dashybackend.herokuapp.com/getnotes`)
+      .then((response) => {
+        setallnotes(response.data);
+        setAppState({
+          loading: false,
+        });
+      });
+  }, [stars, cat]);
 
-  console.log(allnotes);
-  const sendit = () => {
-    Swal.fire({
-      title: "Hey!",
-      text: "no content in your note...",
-      icon: "warning",
-      confirmButtonText: "OK",
-    });
-  };
-  async function newnote() {
-    await fetch("https://dashybackend.herokuapp.com/getnotes")
-      .then((response) => response.json())
-      .then((data) => setallnotes(data));
-    setoki(1);
-  }
   function StarsGen() {
     let starsall = [];
     for (let i = 0; i < 5; i++) {
@@ -62,7 +58,7 @@ export default function ShowNotes({ onBackClick }) {
   const goback = () => {
     onBackClick(17);
   };
-  console.log(stars, cat, oki, allnotes.stars);
+
   return (
     <div className="containerColumn">
       <div className="bigTextcolumn">
@@ -72,7 +68,7 @@ export default function ShowNotes({ onBackClick }) {
           <img className="icons" src={dele} alt="add" onClick={del} />
         </div>
         <div className="containernotes">
-          {oki === 1 &&
+          {appState.loading === false ? (
             allnotes.map((data, i) => {
               return (
                 <div
@@ -87,7 +83,10 @@ export default function ShowNotes({ onBackClick }) {
                   {data.note}
                 </div>
               );
-            })}
+            })
+          ) : (
+            <div>Fetching data...</div>
+          )}
         </div>
         <div className="containercat">
           <StarsGen />
