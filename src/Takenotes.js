@@ -6,7 +6,8 @@ import dele from "../src/images/X.png";
 import lupe from "../src/images/L.png";
 import starblack from "../src/images/starblack.png";
 import stargold from "../src/images/stargold.png";
-export default function Takenotes() {
+
+export default function Takenotes({ onLupeClick, whichIndex }) {
   const [title, settitle] = useState(undefined);
   const [note, setnote] = useState(undefined);
   const [cat, setcat] = useState(0);
@@ -67,12 +68,20 @@ export default function Takenotes() {
     }
     return starsall;
   }
+  const onLupeClick1 = () => {
+    whichIndex === 18 ? onLupeClick(0) : onLupeClick(18);
+  };
   return (
     <div className="containerColumn">
       <div className="bigTextcolumn">
         <div className="iconscontainer">
           <img className="icons" src={dele} alt="delete" onClick={del} />
-          <img className="icons" src={lupe} alt="lupe" />
+          <img
+            className="icons"
+            src={lupe}
+            alt="lupe"
+            onClick={() => onLupeClick1(18)}
+          />
           <img className="icons" src={add} alt="add" onClick={savenew} />
         </div>
 

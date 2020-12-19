@@ -20,6 +20,7 @@ import Art from "./Art";
 import Footer from "./Footer";
 import Swal from "sweetalert2";
 import Takenotes from "./Takenotes";
+import ShowNotes from "./ShowNotes";
 
 export default function App() {
   const [whichIndex, setwhichIndex] = useState(0);
@@ -31,6 +32,7 @@ export default function App() {
       confirmButtonText: "Ok, got it",
     });
   }, []);
+  console.log(whichIndex);
   async function chooseIndex(i) {
     await fetch(
       "https://dashybackend.herokuapp.com/postwindowbehappy/".concat(i),
@@ -67,7 +69,8 @@ export default function App() {
           14: <Decision onGridClick={chooseIndex} />,
           15: <Idea onGridClick={chooseIndex} />,
           16: <Info />,
-          17: <Takenotes />,
+          17: <Takenotes onLupeClick={chooseIndex} whichIndex={whichIndex} />,
+          18: <ShowNotes onBackClick={chooseIndex} whichIndex={whichIndex} />,
         }[whichIndex]
       }
       <Footer onFooterClick={chooseIndex} whichIndex={whichIndex} />

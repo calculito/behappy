@@ -60,6 +60,7 @@ body {
 
 .title {
   width: 96%;
+  min-height: 6%;
   text-align: center;
   justify-self: flex-end;
   align-self: center;
@@ -84,10 +85,31 @@ body {
   background: transparent;
   resize: none;
 }
+.containernotes {
+  height: 76%;
+  background: transparent;
+  overflow: scroll;
+}
 .starSymbols {
   padding: 0px 2px 0px 0px;
   width: 20px;
   height: 20px;
+  cursor: pointer;
+}
+.papernotes {
+  padding: 10px 5px 10px 5px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: left;
+  justify-self: center;
+  width: 88vw;
+  flex: 1;
+  border-radius: 4px;
+  background-color: var(--background-tabN-color);
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
+}
+.papernotes:hover {
   cursor: pointer;
 }
 .timer {
