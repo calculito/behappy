@@ -85,7 +85,7 @@ export default function ShowNotes({ onBackClick }) {
               );
             })
           ) : (
-            <div>Fetching data...</div>
+            <div>Fetching data....</div>
           )}
         </div>
         <div className="containercat">
