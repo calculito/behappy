@@ -89,6 +89,9 @@ body {
   height: 76%;
   background: transparent;
   overflow: scroll;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90vw;
 }
 .starSymbols {
   padding: 0px 2px 0px 0px;
@@ -96,13 +99,26 @@ body {
   height: 20px;
   cursor: pointer;
 }
-.papernotes {
+.papernotesreihen {
   padding: 10px 5px 10px 5px;
   margin-top: 10px;
   display: flex;
   justify-content: left;
   justify-self: center;
-  width: 88vw;
+  min-width: 88vw;
+  flex: 1;
+  border-radius: 4px;
+  background-color: var(--background-tabN-color);
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
+}
+.papernotesboxes {
+  padding: 10px 10px 10px 10px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: left;
+  justify-self: center;
+  width: 40vw;
   flex: 1;
   border-radius: 4px;
   background-color: var(--background-tabN-color);

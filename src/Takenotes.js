@@ -12,8 +12,15 @@ export default function Takenotes({ onLupeClick, whichIndex }) {
   const [note, setnote] = useState(undefined);
   const [cat, setcat] = useState(0);
   const [stars, setstars] = useState(0);
-  const categories = ["text", "theatre", "important", "personal"];
-  const bgcolors = ["lightpink", "lightgreen", " lightsalmon", "lightblue"];
+  const categories = ["TEXT", "BOOK", "IDEA", "PERS", "ARTA"];
+  const bgcolors = [
+    "lightgray",
+    "lightpink",
+    "lightgreen",
+    " lightsalmon",
+    "lightblue",
+    "gold",
+  ];
   const del = () => {
     setnote(undefined);
     settitle(undefined);

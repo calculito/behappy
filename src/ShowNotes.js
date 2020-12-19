@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from "react";
-import Swal from "sweetalert2";
 import back from "../src/images/back.png";
 import dele from "../src/images/X.png";
-import lupe from "../src/images/L.png";
+import gliedboxes from "../src/images/gliedboxes.png";
+import gliedreihen from "../src/images/gliedreihen.png";
 import starblack from "../src/images/starblack.png";
 import stargold from "../src/images/stargold.png";
 import axios from "axios";
-import API from "./Api.js";
 import { setTokenSourceMapRange } from "typescript";
 
 export default function ShowNotes({ onBackClick }) {
   const [cat, setcat] = useState(0);
   const [stars, setstars] = useState(0);
   const [allnotes, setallnotes] = useState(undefined);
-  const [appState, setAppState] = useState({
-    loading: null,
-  });
-  const categories = ["text", "theatre", "important", "personal"];
+  const [loading, setloading] = useState(null);
+  const [gliederung, setgliederung] = useState(0);
+
+  const categories = ["TEXT", "BOOK", "IDEA", "PERS", "ARTA"];
   const bgcolors = [
     "lightgray",
     "lightpink",
     "lightgreen",
     " lightsalmon",
     "lightblue",
+    "gold",
   ];
   const del = () => {
     setcat(0);
@@ -33,12 +33,12 @@ export default function ShowNotes({ onBackClick }) {
     axios
       .get(`https://dashybackend.herokuapp.com/getnotes`)
       .then((response) => {
-        setallnotes(response.data);
-        setAppState({
-          loading: false,
-        });
+        setallnotes(
+          response.data.filter((dataset) => dataset.stars > stars - 1)
+        );
+        setloading(false);
       });
-  }, [stars, cat]);
+  }, [stars, cat, gliederung]);
 
   function StarsGen() {
     let starsall = [];
@@ -58,22 +58,33 @@ export default function ShowNotes({ onBackClick }) {
   const goback = () => {
     onBackClick(17);
   };
+  const glied = () => {
+    console.log("run");
+    gliederung === 1 ? setgliederung(0) : setgliederung(1);
+  };
 
   return (
     <div className="containerColumn">
       <div className="bigTextcolumn">
         <div className="iconscontainer">
           <img className="icons" src={back} alt="back" onClick={goback} />
-          <img className="icons" src={lupe} alt="lupe" />
+          <img
+            className="icons"
+            src={gliederung === 1 ? gliedboxes : gliedreihen}
+            alt="how to align"
+            onClick={glied}
+          />
           <img className="icons" src={dele} alt="add" onClick={del} />
         </div>
         <div className="containernotes">
-          {appState.loading === false ? (
+          {loading === false ? (
             allnotes.map((data, i) => {
               return (
                 <div
                   key={"notes" + i}
-                  className="papernotes"
+                  className={
+                    gliederung === 0 ? "papernotesreihen" : "papernotesboxes"
+                  }
                   style={{
                     backgroundColor: bgcolors[data.cat],
                     fontWeight: cat === i + 1 ? "bold" : "normal",
