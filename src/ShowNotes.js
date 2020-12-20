@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 import back from "../src/images/back.png";
 import dele from "../src/images/X.png";
 import gliedboxes from "../src/images/gliedboxes.png";

@@ -31,7 +31,7 @@ export default function Takenotes({ onLupeClick, whichIndex }) {
     );
   };
   const savenew = () => {
-    title === undefined && settitle("...");
+    note !== undefined && title === undefined && settitle("...");
     note !== undefined ? newnote() : sendit();
   };
   //console.log(cat, title);
@@ -50,6 +50,12 @@ export default function Takenotes({ onLupeClick, whichIndex }) {
       headers: { "Content-Type": "application/json" },
     });
     del();
+    Swal.fire({
+      title: "Nice!",
+      text: "note saved...",
+      icon: "success",
+      confirmButtonText: "OK",
+    });
     //onGridClick(0);
   }
   const sendit = () => {
@@ -93,6 +99,9 @@ export default function Takenotes({ onLupeClick, whichIndex }) {
         </div>
 
         <textarea
+          style={{
+            backgroundColor: cat > 0 ? bgcolors[cat - 1] : "transparent",
+          }}
           name="title"
           className="title"
           autoFocus
