@@ -3,6 +3,8 @@ import back from "../src/images/back.png";
 import dele from "../src/images/X.png";
 import gliedboxes from "../src/images/gliedboxes.png";
 import gliedreihen from "../src/images/gliedreihen.png";
+import filteron from "../src/images/filteron.png";
+import filteroff from "../src/images/filteroff.png";
 import starblack from "../src/images/starblack.png";
 import stargold from "../src/images/stargold.png";
 import axios from "axios";
@@ -24,7 +26,7 @@ export default function ShowNotes({ onBackClick }) {
     "lightblue",
     "gold",
   ];
-  const del = () => {
+  const filter = () => {
     setcat(0);
     setstars(0);
   };
@@ -33,13 +35,15 @@ export default function ShowNotes({ onBackClick }) {
     axios
       .get(`https://dashybackend.herokuapp.com/getnotes`)
       .then((response) => {
-        setallnotes(
-          response.data.filter((dataset) => dataset.stars > stars - 1)
-        );
+        let catfilter =
+          cat > 0
+            ? response.data.filter((dataset) => dataset.cat === cat)
+            : response.data;
+        setallnotes(catfilter.filter((dataset) => dataset.stars > stars - 1));
         setloading(false);
       });
   }, [stars, cat, gliederung]);
-
+  //console.log(cat, stars, allnotes);
   function StarsGen() {
     let starsall = [];
     for (let i = 0; i < 5; i++) {
@@ -55,6 +59,21 @@ export default function ShowNotes({ onBackClick }) {
     }
     return starsall;
   }
+  function StarsHave(nrofstars) {
+    console.log(nrofstars.nrofstars);
+    let starsall = [];
+    for (let i = 0; i < 5; i++) {
+      starsall.push(
+        <img
+          className="starSymbolsSmall"
+          src={nrofstars.nrofstars > i ? stargold : starblack}
+          alt="star"
+          key={i}
+        />
+      );
+    }
+    return starsall;
+  }
   const goback = () => {
     onBackClick(17);
   };
@@ -62,7 +81,10 @@ export default function ShowNotes({ onBackClick }) {
     console.log("run");
     gliederung === 1 ? setgliederung(0) : setgliederung(1);
   };
-
+  const notechosen = (cat, stars) => {
+    setcat(cat);
+    setstars(stars);
+  };
   return (
     <div className="containerColumn">
       <div className="bigTextcolumn">
@@ -74,7 +96,21 @@ export default function ShowNotes({ onBackClick }) {
             alt="how to align"
             onClick={glied}
           />
-          <img className="icons" src={dele} alt="add" onClick={del} />
+          {stars > 0 || cat > 0 ? (
+            <img
+              className="icons"
+              src={filteron}
+              alt="filteron"
+              onClick={filter}
+            />
+          ) : (
+            <img
+              className="icons"
+              src={filteroff}
+              alt="filteroff"
+              onClick={filter}
+            />
+          )}
         </div>
         <div className="containernotes">
           {loading === false ? (
@@ -89,8 +125,14 @@ export default function ShowNotes({ onBackClick }) {
                     backgroundColor: bgcolors[data.cat],
                     fontWeight: cat === i + 1 ? "bold" : "normal",
                   }}
-                  onClick={() => setcat(i + 1)}
+                  onClick={() => notechosen(data.cat, data.stars)}
                 >
+                  <div className="titelzeile">
+                    {data.title === null ? "..." : data.title}
+                    <div className="containerstars">
+                      <StarsHave nrofstars={data.stars} />
+                    </div>
+                  </div>
                   {data.note}
                 </div>
               );

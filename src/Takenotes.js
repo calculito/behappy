@@ -31,10 +31,10 @@ export default function Takenotes({ onLupeClick, whichIndex }) {
     );
   };
   const savenew = () => {
-    console.log(cat);
+    title === undefined && settitle("...");
     note !== undefined ? newnote() : sendit();
   };
-
+  //console.log(cat, title);
   async function newnote() {
     var datenow = new Date();
     console.log(datenow);

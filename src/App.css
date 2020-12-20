@@ -54,8 +54,14 @@ body {
   display: inline-flex;
   align-items: center;
   overflow: auto;
-  padding: 15px 15px 0 15px;
+  padding: 10px 10px 0 10px;
   cursor: pointer;
+}
+.containerstars {
+  display: inline-flex;
+  align-items: center;
+  overflow: auto;
+  padding: 0 5px 0 5px;
 }
 
 .title {
@@ -99,10 +105,21 @@ body {
   height: 20px;
   cursor: pointer;
 }
+.starSymbolsSmall {
+  padding: 0px 2px 0px 0px;
+  width: 10px;
+  height: 10px;
+}
+.titelzeile {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+}
 .papernotesreihen {
   padding: 10px 5px 10px 5px;
   margin-top: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: left;
   justify-self: center;
   min-width: 88vw;
@@ -116,6 +133,7 @@ body {
   padding: 10px 10px 10px 10px;
   margin-top: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: left;
   justify-self: center;
   width: 40vw;
