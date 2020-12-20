@@ -69,8 +69,8 @@ export default function App() {
           14: <Decision onGridClick={chooseIndex} />,
           15: <Idea onGridClick={chooseIndex} />,
           16: <Info />,
-          17: <Takenotes onLupeClick={chooseIndex} whichIndex={whichIndex} />,
-          18: <ShowNotes onBackClick={chooseIndex} whichIndex={whichIndex} />,
+          17: <ShowNotes onBackClick={chooseIndex} whichIndex={whichIndex} />,
+          18: <Takenotes onLupeClick={chooseIndex} whichIndex={whichIndex} />,
         }[whichIndex]
       }
       <Footer onFooterClick={chooseIndex} whichIndex={whichIndex} />

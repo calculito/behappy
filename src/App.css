@@ -122,7 +122,7 @@ body {
   flex-direction: column;
   justify-content: left;
   justify-self: center;
-  min-width: 88vw;
+  min-width: 84vw;
   flex: 1;
   border-radius: 4px;
   background-color: var(--background-tabN-color);

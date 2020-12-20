@@ -82,7 +82,7 @@ export default function Takenotes({ onLupeClick, whichIndex }) {
     return starsall;
   }
   const onLupeClick1 = () => {
-    whichIndex === 18 ? onLupeClick(0) : onLupeClick(18);
+    whichIndex === 17 ? onLupeClick(0) : onLupeClick(17);
   };
   return (
     <div className="containerColumn">

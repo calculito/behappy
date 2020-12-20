@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
-import back from "../src/images/back.png";
+import plus from "../src/images/+.png";
 import dele from "../src/images/X.png";
 import gliedboxes from "../src/images/gliedboxes.png";
 import gliedreihen from "../src/images/gliedreihen.png";
@@ -61,7 +61,6 @@ export default function ShowNotes({ onBackClick }) {
     return starsall;
   }
   function StarsHave(nrofstars) {
-    console.log(nrofstars.nrofstars);
     let starsall = [];
     for (let i = 0; i < 5; i++) {
       starsall.push(
@@ -75,8 +74,8 @@ export default function ShowNotes({ onBackClick }) {
     }
     return starsall;
   }
-  const goback = () => {
-    onBackClick(17);
+  const addnote = () => {
+    onBackClick(18);
   };
   const glied = () => {
     console.log("run");
@@ -90,13 +89,6 @@ export default function ShowNotes({ onBackClick }) {
     <div className="containerColumn">
       <div className="bigTextcolumn">
         <div className="iconscontainer">
-          <img className="icons" src={back} alt="back" onClick={goback} />
-          <img
-            className="icons"
-            src={gliederung === 1 ? gliedboxes : gliedreihen}
-            alt="how to align"
-            onClick={glied}
-          />
           {stars > 0 || cat > 0 ? (
             <img
               className="icons"
@@ -112,6 +104,14 @@ export default function ShowNotes({ onBackClick }) {
               onClick={filter}
             />
           )}
+
+          <img
+            className="icons"
+            src={gliederung === 1 ? gliedboxes : gliedreihen}
+            alt="how to align"
+            onClick={glied}
+          />
+          <img className="icons" src={plus} alt="back" onClick={addnote} />
         </div>
         <div className="containernotes">
           {loading === false ? (
@@ -124,7 +124,6 @@ export default function ShowNotes({ onBackClick }) {
                   }
                   style={{
                     backgroundColor: bgcolors[data.cat],
-                    fontWeight: cat === i + 1 ? "bold" : "normal",
                   }}
                   onClick={() => notechosen(data.cat, data.stars)}
                 >
