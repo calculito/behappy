@@ -35,6 +35,7 @@ body {
   height: 96%;
   display: flex;
   flex-direction: column;
+  border: 1px white dashed;
 }
 .icons {
   padding: 5px 10px 5px 10px;
@@ -173,8 +174,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--background-tabA-color);
-  color: var(--font-dark-color);
+  background-color: white;
+  color: red;
   border: 1px solid var(--background-tabN-color);
   border-bottom-right-radius: 20px;
   font-size: 25px;
