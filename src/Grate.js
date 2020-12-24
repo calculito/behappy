@@ -1,31 +1,59 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 import Timer from "./Timer";
-import Piano from "./Piano";
 export default function Grate({ onGridClick }) {
   const [gift, setgift] = useState(undefined);
+  const allgrates = [
+    "This holiday season, let’s make it a point to cherish what’s truly important in our lives: cookies.",
+    "I told Santa you were good this year and sent him a link to your Pinterest board. Merry Christmas to you!",
+    "Merry Christmas! I put so much thought into your gift that now it's too late to get it.",
+    "Eat. Drink. Be Merry. Have a wonderful Christmas!",
+    "Merry Christmas! Wishing you all the happiness your holiday can hold!",
+    "I hope the magic of Christmas fills every corner of your heart and home with joy — now and always.",
+    "May your family have a holiday season that is full of wonderful surprises, treats and nonstop laughter.",
+    "Wishing you a Christmas that's merry and bright!",
+    "Happy Holidays! I hope all of your Christmas wishes come true.",
+    "Wishing you and your loved ones a blessed Christmas.",
+    "The only thing I love more than Christmas is you.",
+    "It’s not what’s under the tree that matters most, it’s who’s around it. Every year I’m so grateful to have you there.",
+    "Merry Christmas! You're the best gift I could ask for.",
+    "I wish we could be together this holiday season, but I'm sending warm wishes your way.",
+  ];
+  const gratechosen = (i) => {
+    console.log(i);
+    Swal.fire({
+      title: "Nice!",
+      text:
+        "The text is copied. Now open your messaging app, paste it there and send it!",
+      icon: "success",
+      confirmButtonText: "OK",
+    });
+    navigator.clipboard.writeText(allgrates[i]);
+  };
   return (
     <div className="containerColumn">
-      <Piano />
       <Timer onGridClick={onGridClick} />
-      <form className="form">
-        <textarea
-          className="bigWindowForText"
-          autoFocus
-          type="text"
-          placeholder={
-            gift === undefined
-              ? "That is just a placeholder. Type your text to show your gratitude. In positive psychology research, gratitude is strongly and consistently associated with greater happiness. Gratitude helps people feel more positive emotions, relish good experiences, improve their health, deal with adversity, and build strong relationships."
-              : undefined
-          }
-          value={gift}
-          onChange={(e) => setgift(e.target.value)}
-          required
-        />
-      </form>
-      <div className="minitext">
-        <a href="https://www.health.harvard.edu/healthbeat/giving-thanks-can-make-you-happier#:~:text=In%20positive%20psychology%20research%2C%20gratitude,express%20gratitude%20in%20multiple%20ways.">
-          see here more...
-        </a>
+      <br></br>
+      <br></br>
+      <div className={"papernotesreihen"} style={{ textAlign: "center" }}>
+        <span>Click on your favourite text to copy it to the clipboard.</span>
+        <span style={{ textAlign: "center", width: "88vw" }}>
+          Then just open your messaging app like mail, whatsapp or whatever,
+          paste the text and send it! Happy Christmas!
+        </span>
+      </div>
+      <div className="containergrates">
+        {allgrates.map((data, i) => {
+          return (
+            <div
+              key={"grates" + i}
+              className={"papernotesreihen"}
+              onClick={() => gratechosen(i)}
+            >
+              {data}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

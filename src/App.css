@@ -99,6 +99,24 @@ body {
   flex-wrap: wrap;
   width: 90vw;
 }
+.containergrates {
+  height: 92%;
+  background: transparent;
+  overflow: scroll;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 20px;
+}
+.containergrates .papernotesreihen:nth-child(odd) {
+  text-align: center;
+  background: red;
+  color: white;
+}
+.containergrates .papernotesreihen:nth-child(even) {
+  text-align: center;
+  background: white;
+  color: red;
+}
 .starSymbols {
   padding: 0px 2px 0px 0px;
   width: 20px;

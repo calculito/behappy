@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Swal from "sweetalert2";
+
 import plus from "../src/images/+.png";
 import dele from "../src/images/X.png";
 import gliedboxes from "../src/images/gliedboxes.png";
