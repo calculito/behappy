@@ -23,8 +23,7 @@ export default function Grate({ onGridClick }) {
     console.log(i);
     Swal.fire({
       title: "Nice!",
-      text:
-        "The text is copied. Now open your messaging app, paste it there and send it!",
+      text: "Now open your messaging app, paste it there and send it!",
       icon: "success",
       confirmButtonText: "OK",
     });
@@ -35,7 +34,7 @@ export default function Grate({ onGridClick }) {
       <Timer onGridClick={onGridClick} />
       <br></br>
       <br></br>
-      <div className={"papernotesreihen"} style={{ textAlign: "center" }}>
+      <div style={{ textAlign: "center" }}>
         <span>Click on your favourite text to copy it to the clipboard.</span>
         <span style={{ textAlign: "center", width: "88vw" }}>
           Then just open your messaging app like mail, whatsapp or whatever,
