@@ -18,6 +18,9 @@ export default function Grate({ onGridClick }) {
     "It’s not what’s under the tree that matters most, it’s who’s around it. Every year I’m so grateful to have you there.",
     "Merry Christmas! You're the best gift I could ask for.",
     "I wish we could be together this holiday season, but I'm sending warm wishes your way.",
+    "I know it's been a hard year for you and your family. I hope the New Year brings better days.",
+    "Sending you hugs this Christmas season. Take some time to care for yourself.",
+    "Warmest wishes that you can find in this shadowy time.",
   ];
   const gratechosen = (i) => {
     console.log(i);
@@ -34,12 +37,9 @@ export default function Grate({ onGridClick }) {
       <Timer onGridClick={onGridClick} />
       <br></br>
       <br></br>
+      <br></br>
       <div style={{ textAlign: "center" }}>
         <span>Click on your favourite text to copy it to the clipboard.</span>
-        <span style={{ textAlign: "center", width: "88vw" }}>
-          Then just open your messaging app like mail, whatsapp or whatever,
-          paste the text and send it! Happy Christmas!
-        </span>
       </div>
       <div className="containergrates">
         {allgrates.map((data, i) => {

@@ -111,11 +111,13 @@ body {
   text-align: center;
   background: red;
   color: white;
+  cursor: pointer;
 }
 .containergrates .papernotesreihen:nth-child(even) {
   text-align: center;
   background: white;
   color: red;
+  cursor: pointer;
 }
 .starSymbols {
   padding: 0px 2px 0px 0px;
