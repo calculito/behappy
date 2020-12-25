@@ -107,7 +107,7 @@ body {
   width: 90vw;
 }
 .containergrates {
-  height: 92%;
+  height: 90%;
   background: transparent;
   overflow: scroll;
   flex-direction: row;
@@ -115,12 +115,14 @@ body {
   font-size: 20px;
 }
 .containergrates .papernotesreihen:nth-child(odd) {
+  margin-left: 10px;
   text-align: center;
   background: red;
   color: white;
   cursor: pointer;
 }
 .containergrates .papernotesreihen:nth-child(even) {
+  margin-right: 10px;
   text-align: center;
   background: white;
   color: red;

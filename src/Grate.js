@@ -23,11 +23,10 @@ export default function Grate({ onGridClick }) {
     "Warmest wishes that you can find in this shadowy time.",
   ];
   const gratechosen = (i) => {
-    console.log(i);
     Swal.fire({
       title: "Nice!",
-      text: "Now open your messaging app, paste it there and send it!",
-      icon: "success",
+      text:
+        "Now open your messaging app, paste the copied text there and send your message!",
       confirmButtonText: "OK",
     });
     navigator.clipboard.writeText(allgrates[i]);

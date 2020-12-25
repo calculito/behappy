@@ -23,11 +23,10 @@ export default function Thank({ onGridClick }) {
     "Thanks very much for the assistance you provide my business. It is sincerely appreciated.",
   ];
   const thankschosen = (i) => {
-    console.log(i);
     Swal.fire({
       title: "Nice!",
-      text: "Now open your messaging app, paste it there and send it!",
-      icon: "success",
+      text:
+        "Now open your messaging app, paste the copied text there and send your message!",
       confirmButtonText: "OK",
     });
     navigator.clipboard.writeText(allthanks[i]);
@@ -45,7 +44,7 @@ export default function Thank({ onGridClick }) {
         {allthanks.map((data, i) => {
           return (
             <div
-              key={"grates" + i}
+              key={"thanks" + i}
               className={"papernotesreihen"}
               onClick={() => thankschosen(i)}
             >

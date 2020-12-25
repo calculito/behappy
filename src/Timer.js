@@ -6,7 +6,7 @@ export default function Timer({ onGridClick }) {
 
   const sendit = () => {
     Swal.fire({
-      title: "Perfect!",
+      title: "Nice!",
       text: "We hope you feel better now...",
       icon: "success",
       confirmButtonText: "Yes, I do...",
