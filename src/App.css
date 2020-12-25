@@ -35,7 +35,13 @@ body {
   height: 96%;
   display: flex;
   flex-direction: column;
-  border: 1px white dashed;
+}
+.containerColumnDashed {
+  width: 100%;
+  height: 96%;
+  display: flex;
+  flex-direction: column;
+  border: 2px white dashed;
 }
 .icons {
   padding: 5px 10px 5px 10px;

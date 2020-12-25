@@ -1,6 +1,6 @@
 {
-  "name": "take60sec4u",
-  "version": "0.1.5",
+  "name": "minuut",
+  "version": "0.4.5",
   "private": true,
   "engines": {
     "node": "12.x",

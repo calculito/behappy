@@ -33,12 +33,12 @@ export default function Thank({ onGridClick }) {
     navigator.clipboard.writeText(allthanks[i]);
   };
   return (
-    <div className="containerColumn">
+    <div className="containerColumnDashed">
       <Timer onGridClick={onGridClick} />
       <br></br>
       <br></br>
       <br></br>
-      <div style={{ textAlign: "center" }}>
+      <div style={{ textAlign: "center", fontSize: "18px" }}>
         <span>Click on your favourite text to copy it to the clipboard.</span>
       </div>
       <div className="containergrates">

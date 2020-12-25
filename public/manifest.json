@@ -1,6 +1,6 @@
 {
-  "short_name": "take60sec4u",
-  "name": "one minute happiness",
+  "short_name": "minuut",
+  "name": "one minute to happiness",
   "icons": [
     {
       "src": "favicon.ico",
@@ -43,7 +43,7 @@
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "url": "https://take60sec4u.herokuapp.com/",
+  "url": "https://minuut.herokuapp.com/",
   "lang": "",
   "screenshots": []
 }
