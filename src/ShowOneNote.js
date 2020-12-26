@@ -1,24 +1,19 @@
 import React, { useState, useEffect } from "react";
 import plus from "../src/images/+.png";
-import dele from "../src/images/X.png";
-import gliedboxes from "../src/images/gliedboxes.png";
-import gliedreihen from "../src/images/gliedreihen.png";
-import filteron from "../src/images/filteron.png";
-import filteroff from "../src/images/filteroff.png";
+import back from "../src/images/back.png";
 import starblack from "../src/images/starblack.png";
 import stargold from "../src/images/stargold.png";
 import axios from "axios";
 import { setTokenSourceMapRange } from "typescript";
+import Swal from "sweetalert2";
 
-export default function ShowNotes({ onAddClick }) {
+export default function ShowOneNote({ onAddClick, idSingleNote, whichIndex }) {
   const [cat, setcat] = useState(0);
-  const [stars, setstars] = useState(0);
   const [id, setid] = useState(0);
+  const [changes, setchanges] = useState(0);
+  const [stars, setstars] = useState(0);
   const [allnotes, setallnotes] = useState(undefined);
   const [loading, setloading] = useState(null);
-  const [gliederung, setgliederung] = useState(0);
-  const [check, setcheck] = useState(0);
-
   const categories = ["TEXT", "BOOK", "IDEA", "PERS", "ARTA"];
   const bgcolors = [
     "lightgray",
@@ -28,25 +23,20 @@ export default function ShowNotes({ onAddClick }) {
     "lightblue",
     "gold",
   ];
-  const filter = () => {
-    setcat(0);
-    setstars(0);
-    setcheck(0);
-  };
 
   useEffect(() => {
     axios
       .get(`https://dashybackend.herokuapp.com/getnotes`)
       .then((response) => {
-        let catfilter =
-          cat > 0
-            ? response.data.filter((dataset) => dataset.cat === cat)
-            : response.data;
-        setallnotes(catfilter.filter((dataset) => dataset.stars > stars - 1));
+        setallnotes(
+          response.data.filter((dataset) => dataset.id === idSingleNote)
+        );
+        setstars(response.data[0].stars);
+        setid(response.data[0].id);
         setloading(false);
       });
-  }, [stars, cat, gliederung]);
-  //console.log(cat, stars, allnotes);
+  }, [whichIndex]);
+
   function StarsGen() {
     let starsall = [];
     for (let i = 0; i < 5; i++) {
@@ -76,47 +66,58 @@ export default function ShowNotes({ onAddClick }) {
     }
     return starsall;
   }
-  const addnote = () => {
-    onAddClick(18);
+  const goback = () => {
+    changes === 0 ? onAddClick(17) : alertandreset();
   };
-  const glied = () => {
-    gliederung === 1 ? setgliederung(0) : setgliederung(1);
+  const alertandreset = () => {
+    setchanges(0);
+    Swal.fire({
+      title: "Hey!",
+      text: "You changed something!",
+      confirmButtonText: "OK",
+    });
   };
 
-  const notechosen = (cat, stars, id) => {
-    console.log(cat, stars, check, id);
-    setcheck(check + 1);
-    check > 0 && onAddClick(19, id);
-    setcat(cat);
-    setstars(stars);
+  async function savenote() {
+    console.log(stars, cat, id);
+    const data = {
+      stars: stars,
+      cat: cat,
+    };
+    await fetch(
+      "https://dashybackend.herokuapp.com/changeonenote/".concat(id),
+      {
+        method: "PUT",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    Swal.fire({
+      title: "Nice!",
+      text: "note saved...",
+      icon: "success",
+      confirmButtonText: "OK",
+    });
+    onAddClick(17);
+  }
+  const changed = (i) => {
+    setcat(i + 1);
+    setchanges(1);
   };
+  console.log(
+    "cat " + cat,
+    "stars " + stars,
+    allnotes,
+    "changes " + changes,
+    "id " + id,
+    loading
+  );
   return (
     <div className="containerColumn">
       <div className="bigTextcolumn">
         <div className="iconscontainer">
-          {stars > 0 || cat > 0 ? (
-            <img
-              className="icons"
-              src={filteron}
-              alt="filteron"
-              onClick={filter}
-            />
-          ) : (
-            <img
-              className="icons"
-              src={filteroff}
-              alt="filteroff"
-              onClick={filter}
-            />
-          )}
-
-          <img
-            className="icons"
-            src={gliederung === 1 ? gliedboxes : gliedreihen}
-            alt="how to align"
-            onClick={glied}
-          />
-          <img className="icons" src={plus} alt="back" onClick={addnote} />
+          <img className="icons" src={back} alt="back" onClick={goback} />
+          <img className="icons" src={plus} alt="back" onClick={savenote} />
         </div>
         <div className="containernotes">
           {loading === false ? (
@@ -124,13 +125,11 @@ export default function ShowNotes({ onAddClick }) {
               return (
                 <div
                   key={"notes" + i}
-                  className={
-                    gliederung === 0 ? "papernotesreihen" : "papernotesboxes"
-                  }
+                  className="papernotesreihen"
                   style={{
-                    backgroundColor: bgcolors[data.cat],
+                    backgroundColor:
+                      cat === 0 ? bgcolors[data.cat] : bgcolors[cat],
                   }}
-                  onClick={() => notechosen(data.cat, data.stars, data.id)}
                 >
                   <div className="titelzeile">
                     {data.title === null ? "..." : data.title}
@@ -159,7 +158,7 @@ export default function ShowNotes({ onAddClick }) {
                   backgroundColor: bgcolors[i + 1],
                   fontWeight: cat === i + 1 ? "bold" : "normal",
                 }}
-                onClick={() => setcat(i + 1)}
+                onClick={() => changed(i)}
               >
                 {data}
               </div>

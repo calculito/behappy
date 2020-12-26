@@ -21,9 +21,11 @@ import Footer from "./Footer";
 import Swal from "sweetalert2";
 import Takenotes from "./Takenotes";
 import ShowNotes from "./ShowNotes";
+import ShowOneNote from "./ShowOneNote";
 
 export default function App() {
   const [whichIndex, setwhichIndex] = useState(0);
+  const [idSingleNote, setidSingleNote] = useState(0);
   useEffect(() => {
     Swal.fire({
       title: "Welcome!",
@@ -47,7 +49,12 @@ export default function App() {
     //});
     setwhichIndex(i);
   }
-
+  function changeIndex(i, id) {
+    console.log(id);
+    setwhichIndex(i);
+    setidSingleNote(id);
+    console.log(idSingleNote);
+  }
   return (
     <>
       {
@@ -69,8 +76,15 @@ export default function App() {
           14: <Decision onGridClick={chooseIndex} />,
           15: <Idea onGridClick={chooseIndex} />,
           16: <Info />,
-          17: <ShowNotes onBackClick={chooseIndex} whichIndex={whichIndex} />,
-          18: <Takenotes onLupeClick={chooseIndex} whichIndex={whichIndex} />,
+          17: <ShowNotes onAddClick={changeIndex} whichIndex={whichIndex} />,
+          18: <Takenotes onLupeClick={changeIndex} whichIndex={whichIndex} />,
+          19: (
+            <ShowOneNote
+              onAddClick={changeIndex}
+              whichIndex={whichIndex}
+              idSingleNote={idSingleNote}
+            />
+          ),
         }[whichIndex]
       }
       <Footer onFooterClick={chooseIndex} whichIndex={whichIndex} />

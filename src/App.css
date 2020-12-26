@@ -148,6 +148,7 @@ body {
   height: 10px;
 }
 .titelzeile {
+  padding-left: 10px;
   font-size: 20px;
   display: flex;
   justify-content: space-between;
@@ -157,6 +158,8 @@ body {
   font-size: 16px;
 }
 .papernotesreihen {
+  padding-left: 10px;
+  padding-right: 10px;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
