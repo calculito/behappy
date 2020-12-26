@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import Timer from "./Timer";
+import Bemerkung from "./Bemerkung";
 export default function Forgive({ onGridClick }) {
   const allforgives = [
     "To err is human, to forgive divine! Maybe not quite, but I forgive you!",
     "I forgive you but trust must be earned anew.",
-    "I wish I could give you my pain just for one moment. Not to hurt you, but so that you could finally understand how much you hurt me.Still, I forgive you!",
+    "I wish I could give you my pain just for one moment. Not to hurt you, but so that you could finally understand how much you hurt me. Still, I forgive you!",
     "You hurt me very much, now you should try to make it right again.",
     "I forgive you, you know not what you have done.",
     "I forgive you, not because you deserve it, but because carrying you on my mind is a burden.",
@@ -41,9 +42,7 @@ export default function Forgive({ onGridClick }) {
       <br></br>
       <br></br>
       <br></br>
-      <div style={{ textAlign: "center", fontSize: "18px" }}>
-        <span>Click on your favourite text to copy it to the clipboard.</span>
-      </div>
+      <Bemerkung />
       <div className="containergrates">
         {allforgives.map((data, i) => {
           return (

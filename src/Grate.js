@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import Timer from "./Timer";
+import Bemerkung from "./Bemerkung";
 export default function Grate({ onGridClick }) {
   const [gift, setgift] = useState(undefined);
   const allgrates = [
@@ -37,9 +38,7 @@ export default function Grate({ onGridClick }) {
       <br></br>
       <br></br>
       <br></br>
-      <div style={{ textAlign: "center", fontSize: "18px" }}>
-        <span>Click on your favourite text to copy it to the clipboard.</span>
-      </div>
+      <Bemerkung />
       <div className="containergrates">
         {allgrates.map((data, i) => {
           return (

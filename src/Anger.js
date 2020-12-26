@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Timer from "./Timer";
 import Swal from "sweetalert2";
+import Bemerkung from "./Bemerkung";
 export default function Anger({ onGridClick }) {
   const allangers = [
     "I know, sometimes the cost of an impulsive and angry reaction can be so large that you wouldn’t able to buy your words or actions back even if you were a billionaire. So, I won't say FUCK YOU!",
@@ -41,9 +42,7 @@ export default function Anger({ onGridClick }) {
       <br></br>
       <br></br>
       <br></br>
-      <div style={{ textAlign: "center", fontSize: "18px" }}>
-        <span>Click on your favourite text to copy it to the clipboard.</span>
-      </div>
+      <Bemerkung />
       <div className="containergrates">
         {allangers.map((data, i) => {
           return (

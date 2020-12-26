@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Timer from "./Timer";
 import Swal from "sweetalert2";
-
+import Bemerkung from "./Bemerkung";
 export default function Thank({ onGridClick }) {
   const allthanks = [
     "Thank you for all your hard work on this",
@@ -21,6 +21,18 @@ export default function Thank({ onGridClick }) {
     "So glad you’re on my team",
     "I appreciate your assistance and look forward to your continuing to work on our account.",
     "Thanks very much for the assistance you provide my business. It is sincerely appreciated.",
+    "I wanted to express my personal gratitude for the effort and extra time you have contributed",
+    "I would like to thank you and your staff for the opportunity to meet with you.",
+    "Thank you for such a wonderful contribution.",
+    "A BIG thank you with a lot of love",
+    "Thankful and grateful to have you as a friend.",
+    "We’d love to express our gratitude for your generous gift.",
+    "A heartfelt thank you for all that you’ve done.",
+    "You made my day!",
+    "I’m humbled and appreciative of all you’ve done on our behalf.",
+    "The world is full of wonderful things like you!",
+    "Our highest appreciation for your kindness.",
+    "At this difficult time, it’s so nice to feel appreciated.",
   ];
   const thankschosen = (i) => {
     Swal.fire({
@@ -37,9 +49,7 @@ export default function Thank({ onGridClick }) {
       <br></br>
       <br></br>
       <br></br>
-      <div style={{ textAlign: "center", fontSize: "18px" }}>
-        <span>Click on your favourite text to copy it to the clipboard.</span>
-      </div>
+      <Bemerkung />
       <div className="containergrates">
         {allthanks.map((data, i) => {
           return (

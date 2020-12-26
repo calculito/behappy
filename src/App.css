@@ -115,18 +115,24 @@ body {
   font-size: 20px;
 }
 .containergrates .papernotesreihen:nth-child(odd) {
-  margin-left: 10px;
+  margin-left: 30px;
   text-align: center;
   background: red;
-  color: white;
+  color: red;
+  background-image: linear-gradient(to right, mediumseagreen, white);
   cursor: pointer;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 .containergrates .papernotesreihen:nth-child(even) {
-  margin-right: 10px;
+  margin-right: 30px;
   text-align: center;
   background: white;
   color: red;
+  background-image: linear-gradient(to right, white, mediumseagreen);
   cursor: pointer;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .starSymbols {
   padding: 0px 2px 0px 0px;
@@ -144,6 +150,10 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.bemerkung {
+  text-align: center;
+  font-size: 16px;
+}
 .papernotesreihen {
   padding: 10px 5px 10px 5px;
   margin-top: 10px;
@@ -153,7 +163,7 @@ body {
   justify-self: center;
   min-width: 84vw;
   flex: 1;
-  border-radius: 4px;
+
   background-color: var(--background-tabN-color);
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
@@ -175,6 +185,10 @@ body {
 .papernotes:hover {
   cursor: pointer;
 }
+.swal2-popup {
+  opacity: 0.85 !important;
+}
+
 .timer {
   position: absolute;
   width: 40px;
