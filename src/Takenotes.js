@@ -31,24 +31,27 @@ export default function Takenotes({ onLupeClick, whichIndex }) {
     );
   };
   const savenew = () => {
-    note !== undefined && title === undefined && settitle("...");
     note !== undefined ? newnote() : sendit();
   };
-  //console.log(cat, title);
+
   async function newnote() {
     var datenow = new Date();
-    console.log(datenow);
     const data = {
       notetitle: title,
       notetext: note,
       stars: stars,
       savetime: datenow,
     };
-    await fetch("https://dashybackend.herokuapp.com/postnewnote/".concat(cat), {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await fetch(
+      "https://dashybackend.herokuapp.com/postnewnote/".concat(cat),
+      {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    const databack = await response.json();
+    console.log(response, databack);
     del();
     Swal.fire({
       title: "Nice!",
@@ -56,8 +59,9 @@ export default function Takenotes({ onLupeClick, whichIndex }) {
       icon: "success",
       confirmButtonText: "OK",
     });
-    //onGridClick(0);
   }
+  console.log(title, note, cat, stars);
+
   const sendit = () => {
     Swal.fire({
       title: "Hey!",
@@ -66,6 +70,7 @@ export default function Takenotes({ onLupeClick, whichIndex }) {
       confirmButtonText: "OK",
     });
   };
+
   function StarsGen() {
     let starsall = [];
     for (let i = 0; i < 5; i++) {
@@ -81,9 +86,11 @@ export default function Takenotes({ onLupeClick, whichIndex }) {
     }
     return starsall;
   }
+
   const onLupeClick1 = () => {
     whichIndex === 17 ? onLupeClick(0) : onLupeClick(17);
   };
+
   return (
     <div className="containerColumn">
       <div className="bigTextcolumn">
@@ -100,7 +107,7 @@ export default function Takenotes({ onLupeClick, whichIndex }) {
 
         <textarea
           style={{
-            backgroundColor: cat > 0 ? bgcolors[cat - 1] : "transparent",
+            backgroundColor: bgcolors[cat],
           }}
           name="title"
           className="title"
@@ -131,7 +138,7 @@ export default function Takenotes({ onLupeClick, whichIndex }) {
                 key={"cat" + i}
                 className="containercat"
                 style={{
-                  backgroundColor: bgcolors[i],
+                  backgroundColor: bgcolors[i + 1],
                   fontWeight: cat === i + 1 ? "bold" : "normal",
                 }}
                 onClick={() => setcat(i + 1)}
