@@ -102,8 +102,10 @@ body {
   height: 76%;
   background: transparent;
   overflow: scroll;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  float: left;
   width: 90vw;
 }
 .containergrates {
@@ -175,13 +177,11 @@ body {
 }
 .papernotesboxes {
   padding: 10px 10px 10px 10px;
-  margin-top: 10px;
-  display: flex;
+  margin: 10px;
   flex-direction: column;
   justify-content: left;
   justify-self: center;
   width: 40vw;
-  flex: 1;
   border-radius: 4px;
   background-color: var(--background-tabN-color);
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
