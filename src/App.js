@@ -26,6 +26,12 @@ import ShowOneNote from "./ShowOneNote";
 export default function App() {
   const [whichIndex, setwhichIndex] = useState(0);
   const [idSingleNote, setidSingleNote] = useState(0);
+  const [cat, setcat] = useState(0);
+  const [stars, setstars] = useState(0);
+  const [id, setid] = useState(0);
+  const [title, settitle] = useState(0);
+  const [note, setnote] = useState(0);
+
   useEffect(() => {
     Swal.fire({
       title: "Welcome!",
@@ -34,7 +40,7 @@ export default function App() {
       confirmButtonText: "Ok, got it",
     });
   }, []);
-  console.log(whichIndex);
+
   async function chooseIndex(i) {
     await fetch(
       "https://dashybackend.herokuapp.com/postwindowbehappy/".concat(i),
@@ -44,16 +50,19 @@ export default function App() {
       }
     );
     //await fetch("https://take60sec4u.herokuapp.com/", {
-    // method: "GET",
+    // method: "GET",npm run
     // headers: { "Content-Type": "application/json" },
     //});
     setwhichIndex(i);
   }
-  function changeIndex(i, id) {
-    console.log(id);
+  function changeIndex(i, cat, stars, id, title, note) {
+    console.log(cat, stars, id, title, note);
     setwhichIndex(i);
+    setcat(cat);
+    setstars(stars);
     setidSingleNote(id);
-    console.log(idSingleNote);
+    settitle(title);
+    setnote(note);
   }
   return (
     <>
@@ -82,7 +91,11 @@ export default function App() {
             <ShowOneNote
               onAddClick={changeIndex}
               whichIndex={whichIndex}
+              cat={cat}
+              stars={stars}
               idSingleNote={idSingleNote}
+              title={title}
+              note={note}
             />
           ),
         }[whichIndex]

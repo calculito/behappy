@@ -1,19 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import plus from "../src/images/+.png";
 import back from "../src/images/back.png";
 import starblack from "../src/images/starblack.png";
 import stargold from "../src/images/stargold.png";
-import axios from "axios";
 import { setTokenSourceMapRange } from "typescript";
 import Swal from "sweetalert2";
 
-export default function ShowOneNote({ onAddClick, idSingleNote, whichIndex }) {
-  const [cat, setcat] = useState(0);
-  const [id, setid] = useState(0);
+export default function ShowOneNote({
+  onAddClick,
+  whichIndex,
+  cat,
+  stars,
+  idSingleNote,
+  title,
+  note,
+}) {
   const [changes, setchanges] = useState(0);
-  const [stars, setstars] = useState(0);
-  const [allnotes, setallnotes] = useState(undefined);
-  const [loading, setloading] = useState(null);
+  const [herecat, setherecat] = useState(cat);
+  const [herestars, setherestars] = useState(stars);
+  const [hereid, sethereid] = useState(idSingleNote);
+  const [heretitle, setheretitle] = useState(title);
+  const [herenote, setherenote] = useState(note);
   const categories = ["TEXT", "BOOK", "IDEA", "PERS", "ARTA"];
   const bgcolors = [
     "lightgray",
@@ -24,48 +31,22 @@ export default function ShowOneNote({ onAddClick, idSingleNote, whichIndex }) {
     "gold",
   ];
 
-  useEffect(() => {
-    axios
-      .get(`https://dashybackend.herokuapp.com/getnotes`)
-      .then((response) => {
-        setallnotes(
-          response.data.filter((dataset) => dataset.id === idSingleNote)
-        );
-        setstars(response.data[0].stars);
-        setid(response.data[0].id);
-        setloading(false);
-      });
-  }, [whichIndex]);
-
   function StarsGen() {
     let starsall = [];
     for (let i = 0; i < 5; i++) {
       starsall.push(
         <img
           className="starSymbols"
-          src={stars > i ? stargold : starblack}
+          src={herestars > i ? stargold : starblack}
           alt="star"
           key={i}
-          onClick={() => setstars(i + 1)}
+          onClick={() => setherestars(i + 1)}
         />
       );
     }
     return starsall;
   }
-  function StarsHave(nrofstars) {
-    let starsall = [];
-    for (let i = 0; i < 5; i++) {
-      starsall.push(
-        <img
-          className="starSymbolsSmall"
-          src={nrofstars.nrofstars > i ? stargold : starblack}
-          alt="star"
-          key={i}
-        />
-      );
-    }
-    return starsall;
-  }
+
   const goback = () => {
     changes === 0 ? onAddClick(17) : alertandreset();
   };
@@ -79,13 +60,14 @@ export default function ShowOneNote({ onAddClick, idSingleNote, whichIndex }) {
   };
 
   async function savenote() {
-    console.log(stars, cat, id);
     const data = {
-      stars: stars,
-      cat: cat,
+      stars: herestars,
+      cat: herecat,
+      title: heretitle,
+      note: herenote,
     };
     await fetch(
-      "https://dashybackend.herokuapp.com/changeonenote/".concat(id),
+      "https://dashybackend.herokuapp.com/changeonenote/".concat(hereid),
       {
         method: "PUT",
         body: JSON.stringify(data),
@@ -101,17 +83,10 @@ export default function ShowOneNote({ onAddClick, idSingleNote, whichIndex }) {
     onAddClick(17);
   }
   const changed = (i) => {
-    setcat(i + 1);
+    setherecat(i + 1);
     setchanges(1);
   };
-  console.log(
-    "cat " + cat,
-    "stars " + stars,
-    allnotes,
-    "changes " + changes,
-    "id " + id,
-    loading
-  );
+
   return (
     <div className="containerColumn">
       <div className="bigTextcolumn">
@@ -120,30 +95,29 @@ export default function ShowOneNote({ onAddClick, idSingleNote, whichIndex }) {
           <img className="icons" src={plus} alt="back" onClick={savenote} />
         </div>
         <div className="containernotes">
-          {loading === false ? (
-            allnotes.map((data, i) => {
-              return (
-                <div
-                  key={"notes" + i}
-                  className="papernotesreihen"
-                  style={{
-                    backgroundColor:
-                      cat === 0 ? bgcolors[data.cat] : bgcolors[cat],
-                  }}
-                >
-                  <div className="titelzeile">
-                    {data.title === null ? "..." : data.title}
-                    <div className="containerstars">
-                      <StarsHave nrofstars={data.stars} />
-                    </div>
-                  </div>
-                  {data.note}
-                </div>
-              );
-            })
-          ) : (
-            <div>Fetching data....</div>
-          )}
+          <textarea
+            style={{
+              backgroundColor: herecat > 0 ? bgcolors[herecat] : "transparent",
+            }}
+            name="title"
+            className="title"
+            autoFocus
+            type="text"
+            placeholder={heretitle === undefined ? "title..." : undefined}
+            value={heretitle}
+            onChange={(e) => setheretitle(e.target.value)}
+            required
+          />
+
+          <textarea
+            name="notes"
+            className="notes"
+            type="text"
+            placeholder={herenote === undefined ? "write here..." : undefined}
+            value={herenote}
+            onChange={(e) => setherenote(e.target.value)}
+            required
+          />
         </div>
         <div className="containercat">
           <StarsGen />
@@ -156,7 +130,7 @@ export default function ShowOneNote({ onAddClick, idSingleNote, whichIndex }) {
                 className="containercat"
                 style={{
                   backgroundColor: bgcolors[i + 1],
-                  fontWeight: cat === i + 1 ? "bold" : "normal",
+                  fontWeight: herecat === i + 1 ? "bold" : "normal",
                 }}
                 onClick={() => changed(i)}
               >

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import plus from "../src/images/+.png";
-import dele from "../src/images/X.png";
 import gliedboxes from "../src/images/gliedboxes.png";
 import gliedreihen from "../src/images/gliedreihen.png";
 import filteron from "../src/images/filteron.png";
@@ -13,7 +12,6 @@ import { setTokenSourceMapRange } from "typescript";
 export default function ShowNotes({ onAddClick }) {
   const [cat, setcat] = useState(0);
   const [stars, setstars] = useState(0);
-  const [id, setid] = useState(0);
   const [allnotes, setallnotes] = useState(undefined);
   const [loading, setloading] = useState(null);
   const [gliederung, setgliederung] = useState(0);
@@ -46,7 +44,6 @@ export default function ShowNotes({ onAddClick }) {
         setloading(false);
       });
   }, [stars, cat, gliederung]);
-  //console.log(cat, stars, allnotes);
   function StarsGen() {
     let starsall = [];
     for (let i = 0; i < 5; i++) {
@@ -83,10 +80,10 @@ export default function ShowNotes({ onAddClick }) {
     gliederung === 1 ? setgliederung(0) : setgliederung(1);
   };
 
-  const notechosen = (cat, stars, id) => {
-    console.log(cat, stars, check, id);
+  const notechosen = (cat, stars, id, title, note) => {
+    console.log(cat, stars, check, id, title, note);
     setcheck(check + 1);
-    check > 0 && onAddClick(19, id);
+    check > 0 && onAddClick(19, cat, stars, id, title, note);
     setcat(cat);
     setstars(stars);
   };
@@ -130,7 +127,15 @@ export default function ShowNotes({ onAddClick }) {
                   style={{
                     backgroundColor: bgcolors[data.cat],
                   }}
-                  onClick={() => notechosen(data.cat, data.stars, data.id)}
+                  onClick={() =>
+                    notechosen(
+                      data.cat,
+                      data.stars,
+                      data.id,
+                      data.title,
+                      data.note
+                    )
+                  }
                 >
                   <div className="titelzeile">
                     {data.title === null ? "..." : data.title}
