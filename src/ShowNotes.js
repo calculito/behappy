@@ -89,7 +89,7 @@ export default function ShowNotes({ onAddClick }) {
   };
   return (
     <div className="containerColumn">
-      <div className="bigTextcolumn">
+      <div className="bigTextcolumnNotes">
         <div className="iconscontainer">
           {stars > 0 || cat > 0 ? (
             <img

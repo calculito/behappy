@@ -94,11 +94,13 @@ export default function ShowOneNote({
           <img className="icons" src={back} alt="back" onClick={goback} />
           <img className="icons" src={plus} alt="back" onClick={savenote} />
         </div>
-        <div className="containernotes">
+        <div
+          className="containernotes"
+          style={{
+            backgroundColor: herecat > 0 ? bgcolors[herecat] : "transparent",
+          }}
+        >
           <textarea
-            style={{
-              backgroundColor: herecat > 0 ? bgcolors[herecat] : "transparent",
-            }}
             name="title"
             className="title"
             autoFocus
