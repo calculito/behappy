@@ -49,14 +49,9 @@ export default function App() {
         headers: { "Content-Type": "application/json" },
       }
     );
-    //await fetch("https://take60sec4u.herokuapp.com/", {
-    // method: "GET",npm run
-    // headers: { "Content-Type": "application/json" },
-    //});
     setwhichIndex(i);
   }
   function changeIndex(i, cat, stars, id, title, note) {
-    console.log(cat, stars, id, title, note);
     setwhichIndex(i);
     setcat(cat);
     setstars(stars);

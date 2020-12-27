@@ -42,16 +42,12 @@ export default function Takenotes({ onLupeClick, whichIndex }) {
       stars: stars,
       savetime: datenow,
     };
-    const response = await fetch(
-      "https://dashybackend.herokuapp.com/postnewnote/".concat(cat),
-      {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" },
-      }
-    );
-    const databack = await response.json();
-    console.log(response, databack);
+    await fetch("https://dashybackend.herokuapp.com/postnewnote/".concat(cat), {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    });
+
     del();
     Swal.fire({
       title: "Nice!",
@@ -60,7 +56,6 @@ export default function Takenotes({ onLupeClick, whichIndex }) {
       confirmButtonText: "OK",
     });
   }
-  console.log(title, note, cat, stars);
 
   const sendit = () => {
     Swal.fire({
