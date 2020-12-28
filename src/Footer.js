@@ -60,14 +60,16 @@ function Footer({ onFooterClick, whichIndex }) {
   return (
     <div className="footer">
       <div className="iconsRefferer">
-        <div className="minitext" onClick={onFooterClick2}>made with love and sweat by i.on 2020</div>
+        <div className="minitext" onClick={onFooterClick2}>
+          .
+        </div>
         <div className="infoContButtons">
           <button
             className="buttonHW"
             style={{ height: "22px" }}
             onClick={onFooterClick1}
           >
-            {whichIndex === 15 ? "back" : "info"}
+            {whichIndex > 0 ? "back" : "info"}
           </button>
           <button
             className="buttonHW"
