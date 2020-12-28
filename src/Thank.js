@@ -46,9 +46,6 @@ export default function Thank({ onGridClick }) {
   return (
     <div className="containerColumnDashed">
       <Timer onGridClick={onGridClick} />
-      <br></br>
-      <br></br>
-      <br></br>
       <Bemerkung />
       <div className="containergrates">
         {allthanks.map((data, i) => {

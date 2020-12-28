@@ -39,9 +39,6 @@ export default function Forgive({ onGridClick }) {
   return (
     <div className="containerColumnDashed">
       <Timer onGridClick={onGridClick} />
-      <br></br>
-      <br></br>
-      <br></br>
       <Bemerkung />
       <div className="containergrates">
         {allforgives.map((data, i) => {

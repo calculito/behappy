@@ -39,9 +39,6 @@ export default function Anger({ onGridClick }) {
   return (
     <div className="containerColumnDashed">
       <Timer onGridClick={onGridClick} />
-      <br></br>
-      <br></br>
-      <br></br>
       <Bemerkung />
       <div className="containergrates">
         {allangers.map((data, i) => {
