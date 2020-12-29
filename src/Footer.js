@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 
 function Footer({ onFooterClick, whichIndex }) {
   const [colorSet, setcolorSet] = useState("blue");
@@ -56,7 +57,14 @@ function Footer({ onFooterClick, whichIndex }) {
   const onFooterClick2 = () => {
     whichIndex === 17 ? onFooterClick(0) : onFooterClick(17);
   };
-
+  const showinfo = (i) => {
+    Swal.fire({
+      title: "Read carefully!",
+      text:
+        "Here you'll find no adds, no data collection, no cookies (only externs), no login, no passwords, no monitoring or tracking. We don't like this and we assume, you don't like this either. Whatever you're doing here is anonymous and only your business. Except the ideas you send us, everything else is going to God knows where (Internet-Nirvana). We don't know you and we would keep it like that. What we want is you feeling good. Nothing else. If you are happy, even for one minute, you will make happy someone else too. We believe that. Just be happy.",
+      confirmButtonText: "OK",
+    });
+  };
   return (
     <div className="footer">
       <div className="iconsRefferer">
@@ -67,9 +75,9 @@ function Footer({ onFooterClick, whichIndex }) {
           <button
             className="buttonHW"
             style={{ height: "22px" }}
-            onClick={onFooterClick1}
+            onClick={showinfo}
           >
-            {whichIndex > 0 ? "back" : "info"}
+            info
           </button>
           <button
             className="buttonHW"
