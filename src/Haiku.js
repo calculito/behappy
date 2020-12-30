@@ -1,6 +1,7 @@
 import React from "react";
 import Swal from "sweetalert2";
 import Timer from "./Timer";
+import TakeMeOut from "./TakeMeOut";
 export default function Haiku({ onGridClick }) {
   const haikus = [
     "trunks of fairy floss a delicate existence, guardian of all. ",
@@ -73,6 +74,7 @@ export default function Haiku({ onGridClick }) {
   return (
     <div className="containerColumn">
       <Timer onGridClick={onGridClick} />
+      <TakeMeOut onGridClick={onGridClick} />
       <div className="bigText" onClick={sendit}>
         <span className="haiku">{haikus[nr]}</span>
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import Swal from "sweetalert2";
 import Timer from "./Timer";
+
 export default function Time({ onGridClick }) {
   const sendit = () => {
     Swal.fire({

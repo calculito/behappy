@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Swal from "sweetalert2";
 import Timer from "./Timer";
+import TakeMeOut from "./TakeMeOut";
 import Bemerkung from "./Bemerkung";
 export default function Grate({ onGridClick }) {
-  const [gift, setgift] = useState(undefined);
   const allgrates = [
     "Wishing you all the happiness your holiday can hold!",
     "May your family have a holiday season that is full of wonderful surprises, treats and nonstop laughter.",
@@ -43,6 +43,7 @@ export default function Grate({ onGridClick }) {
   return (
     <div className="containerColumnDashed">
       <Timer onGridClick={onGridClick} />
+      <TakeMeOut onGridClick={onGridClick} />
       <Bemerkung />
       <div className="containergrates">
         {allgrates.map((data, i) => {

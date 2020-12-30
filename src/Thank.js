@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import Timer from "./Timer";
+import TakeMeOut from "./TakeMeOut";
 import Swal from "sweetalert2";
 import Bemerkung from "./Bemerkung";
 export default function Thank({ onGridClick }) {
@@ -46,6 +47,7 @@ export default function Thank({ onGridClick }) {
   return (
     <div className="containerColumnDashed">
       <Timer onGridClick={onGridClick} />
+      <TakeMeOut onGridClick={onGridClick} />
       <Bemerkung />
       <div className="containergrates">
         {allthanks.map((data, i) => {

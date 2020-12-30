@@ -1,5 +1,6 @@
 import React from "react";
 import Timer from "./Timer";
+import TakeMeOut from "./TakeMeOut";
 
 export default function Decision({ onGridClick }) {
   const [question, setQuestion] = React.useState(0);
@@ -37,25 +38,46 @@ export default function Decision({ onGridClick }) {
   return (
     <div className="containerColumn">
       <Timer onGridClick={onGridClick} />
+      <TakeMeOut onGridClick={onGridClick} />
       <div className="containerColumn">
         <span className="haikusmall">{description[question]}</span>
-        <span className="typo">(Click on one of the buttons below)</span>
+        {question < 13 && (
+          <span className="typo">(Click on one of the buttons below)</span>
+        )}
         {question === 13 && <span className="haikusmall">That's it:</span>}
         <div className="percent">
           {" "}
           <div
             className="paper"
             onClick={changePercentPlus}
-            style={{ backgroundColor: "lightgreen" }}
+            style={{
+              backgroundColor: "lightgreen",
+              color: "indianred",
+              fontWeight: "bold",
+            }}
           >
-            <span className="haikusmall">yes ({percent}%) </span>{" "}
+            <span
+              className="haikusmall"
+              style={{
+                backgroundColor: "lightgreen",
+                color: "indianred",
+                fontWeight: "bold",
+              }}
+            >
+              yes ({percent}%){" "}
+            </span>{" "}
           </div>
           <div
             className="paper"
             onClick={changePercentMinus}
-            style={{ backgroundColor: "lightsalmon" }}
+            style={{ backgroundColor: "indianred", color: "lightgreen" }}
           >
-            <span className="haikusmall">no ({100 - percent}%)</span>
+            <span
+              className="haikusmall"
+              style={{ backgroundColor: "indianred", color: "lightgreen" }}
+            >
+              no ({100 - percent}%)
+            </span>
           </div>
         </div>
       </div>

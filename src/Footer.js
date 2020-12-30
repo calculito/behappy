@@ -51,9 +51,7 @@ function Footer({ onFooterClick, whichIndex }) {
       return colorSet;
     });
   }, [colorSet]);
-  const onFooterClick1 = () => {
-    whichIndex === 16 ? onFooterClick(0) : onFooterClick(16);
-  };
+
   const onFooterClick2 = () => {
     whichIndex === 17 ? onFooterClick(0) : onFooterClick(17);
   };

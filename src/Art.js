@@ -1,6 +1,7 @@
 import React from "react";
 import Swal from "sweetalert2";
 import Timer from "./Timer";
+import TakeMeOut from "./TakeMeOut";
 export default function Art({ onGridClick }) {
   const artlinks = [
     "https://images.unsplash.com/photo-1541680670548-88e8cd23c0f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=698&q=80",
@@ -103,6 +104,7 @@ export default function Art({ onGridClick }) {
   return (
     <div className="containerColumn">
       <Timer onGridClick={onGridClick} />
+      <TakeMeOut onGridClick={onGridClick} />
       <img
         className="bigPicture"
         src={artlinks[nr]}

@@ -12,6 +12,7 @@ export default function Smile({ onGridClick }) {
   return (
     <div className="containerColumn">
       <Timer onGridClick={onGridClick} />
+      <TakeMeOut onGridClick={onGridClick} />
       <div className="mirror" onClick={sendit}>
         <span className="haiku">smile... :)</span>
       </div>

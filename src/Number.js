@@ -18,6 +18,7 @@ export default function Number({ onGridClick }) {
   return (
     <div className="containerColumn">
       <Timer onGridClick={onGridClick} />
+      <TakeMeOut onGridClick={onGridClick} />
       <div className="bigText" onClick={sendit}>
         <span className="haiku2x">{"+" + nr}</span>
       </div>

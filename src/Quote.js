@@ -1,6 +1,7 @@
 import React from "react";
 import Swal from "sweetalert2";
 import Timer from "./Timer";
+import TakeMeOut from "./TakeMeOut";
 export default function Quote({ onGridClick }) {
   const quotes = [
     "'I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.'",
@@ -76,6 +77,7 @@ export default function Quote({ onGridClick }) {
   return (
     <div className="containerColumn">
       <Timer onGridClick={onGridClick} />
+      <TakeMeOut onGridClick={onGridClick} />
       <div className="bigTextcolumn" onClick={sendit}>
         <span className="quoteitalic">{quotes[nr]}</span>
         <span className="quoteauthor">{authors[nr]}</span>

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Timer from "./Timer";
 import Swal from "sweetalert2";
+import TakeMeOut from "./TakeMeOut";
 import Bemerkung from "./Bemerkung";
 export default function Anger({ onGridClick }) {
   const allangers = [
-    "I know, sometimes the cost of an impulsive and angry reaction can be so large that you wouldn’t able to buy your words or actions back even if you were a billionaire. So, I won't say FUCK YOU!",
+    "I know, sometimes the cost of an impulsive and angry reaction can be so large that you wouldn’t able to buy your words or actions back even if you were a billionaire. So, I won't say F*** YOU!",
     "Sometimes it is easier to repair a broken wall than to mend a broken relationship. Sometimes it is not. However, we need a new flat.",
     "I would like to answer you RIGHT NOW but I just decided to take a walk.",
     "You'll get the answer as soon as I calmed down.",
@@ -39,6 +40,7 @@ export default function Anger({ onGridClick }) {
   return (
     <div className="containerColumnDashed">
       <Timer onGridClick={onGridClick} />
+      <TakeMeOut onGridClick={onGridClick} />
       <Bemerkung />
       <div className="containergrates">
         {allangers.map((data, i) => {

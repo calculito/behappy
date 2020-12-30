@@ -1,24 +1,18 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import useSound from "use-sound";
 import MeditateSound from "./images/meditation.mp3";
+import TakeMeOut from "./TakeMeOut";
 import Play from "./images/play.svg";
 import Stop from "./images/stop.svg";
 import Timer from "./Timer";
 export default function Meditation({ onGridClick }) {
   const [play, { stop }] = useSound(MeditateSound);
   const [isPlaying, setIsPlaying] = useState(false);
-  const sendit = () => {
-    Swal.fire({
-      title: "C'mon!",
-      text: `You only have a couple of seconds left...`,
-      confirmButtonText: "ok...",
-    });
-  };
+
   return (
     <div className="containerColumn">
       <Timer onGridClick={onGridClick} />
-
+      <TakeMeOut onGridClick={onGridClick} />
       <div className="bigTextcolumn ">
         <span className="typo">
           Press the 'Play' button, close your eyes and enjoy the energy!{" "}
@@ -39,10 +33,10 @@ export default function Meditation({ onGridClick }) {
             key="Start"
             className="logoPlay"
             src={Stop}
-            alt="Play button"
+            alt="Stop button"
             onClick={() => {
-              setIsPlaying(true);
-              sendit();
+              setIsPlaying(false);
+              stop();
             }}
           />
         )}

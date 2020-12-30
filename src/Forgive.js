@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Swal from "sweetalert2";
 import Timer from "./Timer";
+import TakeMeOut from "./TakeMeOut";
 import Bemerkung from "./Bemerkung";
 export default function Forgive({ onGridClick }) {
   const allforgives = [
@@ -39,6 +40,7 @@ export default function Forgive({ onGridClick }) {
   return (
     <div className="containerColumnDashed">
       <Timer onGridClick={onGridClick} />
+      <TakeMeOut onGridClick={onGridClick} />
       <Bemerkung />
       <div className="containergrates">
         {allforgives.map((data, i) => {

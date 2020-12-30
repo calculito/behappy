@@ -9,7 +9,7 @@ import ShoulderStretch1 from "./images/shoulderstretch1.png";
 import UpperArmStretch from "./images/upperarmstretch.png";
 import UpperArmStretch1 from "./images/upperarmstretch1.png";
 import StandingChestStretch from "./images/standingcheststretch.png";
-import StandingChestStretch1 from "./images/standingcheststretch1.png";
+
 export default function Exercise({ onGridClick }) {
   const [exercise, setExercise] = React.useState(0);
   const [counter, setCounter] = React.useState(5);

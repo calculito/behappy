@@ -1,6 +1,7 @@
 import React from "react";
 import Swal from "sweetalert2";
 import Timer from "./Timer";
+
 export default function Word({ onGridClick }) {
   const words = [
     "https://www.thefreedictionary.com/headquarter",
@@ -56,6 +57,7 @@ export default function Word({ onGridClick }) {
   return (
     <div className="containerColumn" onClick={sendit}>
       <Timer onGridClick={onGridClick} />
+
       <iframe
         sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation"
         id="sandboxed"

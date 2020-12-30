@@ -1,4 +1,4 @@
-import React, { useState, app, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Grid from "./Grid";
 import Decision from "./Decision";
@@ -28,7 +28,6 @@ export default function App() {
   const [idSingleNote, setidSingleNote] = useState(0);
   const [cat, setcat] = useState(0);
   const [stars, setstars] = useState(0);
-  const [id, setid] = useState(0);
   const [title, settitle] = useState(0);
   const [note, setnote] = useState(0);
 

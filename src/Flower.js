@@ -1,6 +1,7 @@
 import React from "react";
 import Swal from "sweetalert2";
 import Timer from "./Timer";
+import TakeMeOut from "./TakeMeOut";
 export default function Flower({ onGridClick }) {
   const flowerlinks = [
     "https://images.pexels.com/photos/3750764/pexels-photo-3750764.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -68,6 +69,7 @@ export default function Flower({ onGridClick }) {
   return (
     <div className="containerColumn">
       <Timer onGridClick={onGridClick} />
+      <TakeMeOut onGridClick={onGridClick} />
       <img
         className="bigPicture"
         src={flowerlinks[nr]}
