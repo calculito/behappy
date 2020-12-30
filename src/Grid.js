@@ -51,10 +51,11 @@ const images = {
   14: Idea,
 };
 
-export default function Grid({ onGridClick }) {
+export default function Grid({ onGridClick, beblur }) {
+  console.log(beblur);
   return (
     <>
-      <div className="container">
+      <div className={beblur === 0 ? "container" : "container containerblur"}>
         {content.map((data, i) => {
           return (
             <div className="paper" key={"paper" + i}>

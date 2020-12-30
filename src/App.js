@@ -30,14 +30,17 @@ export default function App() {
   const [stars, setstars] = useState(0);
   const [title, settitle] = useState(0);
   const [note, setnote] = useState(0);
+  const [beblur, setbeblur] = useState(0);
 
   useEffect(() => {
+    setbeblur(1);
     Swal.fire({
       title: "Welcome!",
       text:
         "Take a break of 60 seconds and enjoy the beauty of flowers, the power of positive quotes or get rid of anger and stress!",
       confirmButtonText: "Ok, got it",
     });
+    setbeblur(0);
   }, []);
 
   async function chooseIndex(i) {
@@ -62,7 +65,7 @@ export default function App() {
     <>
       {
         {
-          0: <Grid onGridClick={chooseIndex} />,
+          0: <Grid onGridClick={chooseIndex} beblur={beblur} />,
           1: <Flower onGridClick={chooseIndex} />,
           2: <Word onGridClick={chooseIndex} />,
           3: <Meditate onGridClick={chooseIndex} />,
