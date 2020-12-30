@@ -118,7 +118,7 @@ body {
 }
 .containergrates {
   height: 90%;
-  background: transparent;
+  background: white;
   overflow: scroll;
   flex-direction: row;
   flex-wrap: wrap;
@@ -205,8 +205,21 @@ body {
 .papernotes:hover {
   cursor: pointer;
 }
-.swal2-popup {
-  opacity: 0.85 !important;
+.swal2-modal {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+.swal2-header {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.swal2-content {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.swal2-confirm {
+  background: rgba(61, 85, 161, 0.95) !important;
 }
 .bigTextcolumnNotes {
   width: 100%;
@@ -232,7 +245,7 @@ body {
 }
 .takemeout {
   position: absolute;
-  left: 88%;
+  left: 97%;
   top: 0;
   width: 40px;
   height: 40px;
@@ -559,5 +572,8 @@ a {
   }
   .bemerkung {
     margin-top: 50px;
+  }
+  .takemeout {
+    left: 88%;
   }
 }
